@@ -1,12 +1,25 @@
 package ru.logrocon.lesson1;
 
 public class SecondCourse extends Food {
-    public SecondCourse(){
-        name = "df55555";
-        weight = 1571.9;
+
+    public double caloricity;
+
+    public SecondCourse(String name, double weight ){
+        this.typeFood = TypeFood.SecondCourse;
+        this.name = name;
+        this.weight = weight;
+    }
+
+    public SecondCourse(String name, double weight, double caloricity ){
+        this.typeFood = TypeFood.SecondCourse;
+        this.name = name;
+        this.weight = weight;
+        this.caloricity = caloricity;
     }
 
     public String displayInfos(){
-        return  "Имя:"+name+"\r\n"+"Вес:"+weight;
+
+        return caloricity == 0  ? "Название: "+name+" "+"Вес: "+weight
+                                : "Название: "+name+" "+"Вес: "+weight+" "+"Калорийность: "+ caloricity;
     }
 }
