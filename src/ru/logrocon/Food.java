@@ -1,5 +1,12 @@
 package ru.logrocon;
 
+/**
+ * Интерфейс для блюд, которые можно готовить
+ */
 public interface Food {
-    void Cook();
+
+    /**
+     * Метод для готовки
+     */
+    void cook();
 }
