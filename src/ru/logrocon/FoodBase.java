@@ -1,11 +1,21 @@
 package ru.logrocon;
 
-public class FoodBase implements  Food{
+public class FoodBase {
     protected String name;
 
-    @Override
+
     public void Cook() {
-        System.out.println(String.join(" ", name, "готовится"));
-        System.out.println(String.join(" ", name, "приготовлено"));
+        System.out.println(String.join(" ", name, Prepare()));
+        System.out.println(String.join(" ", name, Finish()));
+    }
+
+    protected String Prepare()
+    {
+        return "готовится из стандартных продуктов";
+    }
+
+    protected String Finish()
+    {
+        return "приготовлено из стандартных продуктов";
     }
 }
