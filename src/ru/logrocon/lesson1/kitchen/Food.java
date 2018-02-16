@@ -4,7 +4,7 @@ import ru.logrocon.lesson1.kitchen.ingredient.Ingredient;
 
 import java.util.ArrayList;
 
-public class Food {
+public final class Food {
 
     private ArrayList<Ingredient> ingredients = new ArrayList<>();
     private String name;

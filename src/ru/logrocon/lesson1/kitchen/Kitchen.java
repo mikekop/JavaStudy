@@ -1,9 +1,10 @@
 package ru.logrocon.lesson1.kitchen;
 
-
 import ru.logrocon.lesson1.kitchen.ingredient.*;
 import ru.logrocon.lesson1.kitchen.process.Process;
 import ru.logrocon.lesson1.kitchen.process.ProcessWait;
+
+import static ru.logrocon.lesson1.kitchen.RecipeUtils.*;
 
 public class Kitchen {
 
@@ -42,7 +43,7 @@ public class Kitchen {
                 .addStep(new IngredientByTaste("Мелкопорубленная зелень"))
                 .addStep(new ProcessWait("пройдет 5-7 минут"));
 
-        Recipe borsch = Recipe.mergeRecipes("Борщ", bouillon, roast, endOfCook);
+        Recipe borsch = mergeRecipes("Борщ", bouillon, roast, endOfCook);
 
         System.out.println("\nМы приготовили " + Food.getByRecipe(borsch));
         System.out.println("\nДо новых встреч на кухне!");
