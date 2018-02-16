@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="kitchen:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/kitchen_jar</output-path>
-    <root id="archive" name="kitchen.jar">
-      <element id="module-output" name="kitchen" />
-    </root>
-  </artifact>
-</component>
