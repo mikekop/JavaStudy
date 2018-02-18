@@ -1,7 +1,6 @@
-package ru.logrocon.food;
+package ru.logrocon.lesson1.food;
 
-import ru.logrocon.Food;
-import ru.logrocon.FoodBase;
+import ru.logrocon.lesson1.FoodBase;
 
 /**
  * Класс, описывающий пирог

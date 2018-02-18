@@ -1,6 +1,6 @@
-package ru.logrocon;
+package ru.logrocon.lesson1;
 
-import ru.logrocon.food.*;
+import ru.logrocon.lesson1.food.*;
 
 public class Main {
 

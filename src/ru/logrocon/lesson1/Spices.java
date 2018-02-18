@@ -1,4 +1,4 @@
-package ru.logrocon;
+package ru.logrocon.lesson1;
 
 /**
  * Интерфейс для блюд, в которые можно добалять специи

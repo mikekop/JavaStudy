@@ -1,13 +1,12 @@
-package ru.logrocon.food;
+package ru.logrocon.lesson1.food;
 
-import ru.logrocon.Food;
-import ru.logrocon.FoodBase;
-import ru.logrocon.Spices;
+import ru.logrocon.lesson1.FoodBase;
+import ru.logrocon.lesson1.Spices;
 
 /**
  * Класс, описывающий первое блюдо
  */
-public class FirstCourse extends FoodBase implements Spices{
+public class FirstCourse extends FoodBase implements Spices {
     public FirstCourse(){
         name = "Первое блюдо";
         addSpice();
