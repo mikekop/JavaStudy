@@ -1,4 +1,4 @@
-package ru.logrocon.lesson1.kitchen.ingredient;
+package ru.logrocon.kitchen.ingredient;
 
 public class IngredientByQuantity extends Ingredient {
     private int quantity = 0;

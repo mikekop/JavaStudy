@@ -1,4 +1,4 @@
-package ru.logrocon.lesson1.kitchen.ingredient;
+package ru.logrocon.kitchen.ingredient;
 
 public class IngredientByVolume extends Ingredient {
     private float volume = 0.0f;

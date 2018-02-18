@@ -1,9 +1,9 @@
-package ru.logrocon.lesson1.kitchen.process;
+package ru.logrocon.kitchen.process;
 
-import ru.logrocon.lesson1.kitchen.Food;
-import ru.logrocon.lesson1.kitchen.Step;
+import ru.logrocon.kitchen.CookStep;
+import ru.logrocon.kitchen.Food;
 
-public class ProcessMerge implements Step {
+public class ProcessMerge implements CookStep {
     private String name;
     private int number;
 

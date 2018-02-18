@@ -1,9 +1,9 @@
-package ru.logrocon.lesson1.kitchen.process;
+package ru.logrocon.kitchen.process;
 
-import ru.logrocon.lesson1.kitchen.Food;
-import ru.logrocon.lesson1.kitchen.Step;
+import ru.logrocon.kitchen.CookStep;
+import ru.logrocon.kitchen.Food;
 
-public class Process implements Step {
+public class Process implements CookStep {
     private String name;
     private float duration = 0.0f;
 

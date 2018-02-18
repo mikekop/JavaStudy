@@ -1,9 +1,9 @@
-package ru.logrocon.lesson1.kitchen.ingredient;
+package ru.logrocon.kitchen.ingredient;
 
-import ru.logrocon.lesson1.kitchen.Food;
-import ru.logrocon.lesson1.kitchen.Step;
+import ru.logrocon.kitchen.Food;
+import ru.logrocon.kitchen.CookStep;
 
-public abstract class Ingredient implements Step {
+public abstract class Ingredient implements CookStep {
     private String name;
 
     public Ingredient(String name){

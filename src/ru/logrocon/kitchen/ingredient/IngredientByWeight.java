@@ -1,4 +1,4 @@
-package ru.logrocon.lesson1.kitchen.ingredient;
+package ru.logrocon.kitchen.ingredient;
 
 public class IngredientByWeight extends Ingredient {
     private float weight;

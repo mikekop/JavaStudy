@@ -1,6 +1,7 @@
-package ru.logrocon.lesson1.kitchen;
+package ru.logrocon.kitchen;
 
-import ru.logrocon.lesson1.kitchen.ingredient.Ingredient;
+import ru.logrocon.kitchen.ingredient.Ingredient;
+import ru.logrocon.kitchen.recipe.Recipe;
 
 import java.util.ArrayList;
 
@@ -14,9 +15,11 @@ public final class Food {
     }
 
     public static Food getByRecipe(Recipe recipe) {
+        if (recipe == null) return null;
+
         Food food = new Food(recipe.getName());
 
-        recipe.getSteps().forEach(cookStep -> cookStep.doStep(food));
+        recipe.getCookSteps().forEach(cookStep -> cookStep.doStep(food));
 
         return food;
     }
