@@ -7,7 +7,7 @@ import ru.logrocon.Spices;
 /**
  * Класс, описывающий первое блюдо
  */
-public class FirstCourse extends FoodBase implements Food, Spices{
+public class FirstCourse extends FoodBase implements Spices{
     public FirstCourse(){
         name = "Первое блюдо";
         addSpice();

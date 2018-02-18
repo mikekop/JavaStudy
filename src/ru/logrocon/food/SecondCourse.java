@@ -6,7 +6,7 @@ import ru.logrocon.FoodBase;
 /**
  * Класс, описывающий второе блюдо
  */
-public class SecondCourse extends FoodBase implements Food {
+public class SecondCourse extends FoodBase {
     public SecondCourse(){
         name = "Второе блюдо";
     }

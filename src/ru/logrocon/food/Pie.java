@@ -6,7 +6,7 @@ import ru.logrocon.FoodBase;
 /**
  * Класс, описывающий пирог
  */
-public class Pie extends FoodBase implements Food {
+public class Pie extends FoodBase {
     public Pie(){
         name = "Пирог";
     }

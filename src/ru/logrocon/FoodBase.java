@@ -3,7 +3,7 @@ package ru.logrocon;
 /**
  * Базовый класс для блюд
  */
-public abstract class FoodBase {
+public abstract class FoodBase implements Food {
     protected String name;
 
 
@@ -12,7 +12,13 @@ public abstract class FoodBase {
         System.out.println(String.join(" ", name, finish()));
     }
 
+    /**
+     * Метод готовки
+     */
     protected abstract String prepare();
 
+    /**
+     * Метод окончания готовки
+     */
     protected abstract String finish();
 }
