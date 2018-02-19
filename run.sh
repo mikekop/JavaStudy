@@ -2,7 +2,7 @@
 
 rm -rf ./out
 mkdir out
-if [ $1 = task3 ]
+if [ ! -z $1 ] && [ $1 = task3 ]
 then
     javac -sourcepath ./src -d out ./src/ru/logrocon/task3/Main.java &&
     java -classpath ./out ru.logrocon.task3.Main

@@ -47,7 +47,6 @@ $ ./run.sh testQueue
 $ ./run.sh task3
 ```
 ### Для получения только значений бенчмарка
-```
 ```sh
 $ ./run.sh task3 | grep ">"
 ```
