@@ -1,25 +1,31 @@
 package ru.logrocon.utils;
 
+import java.util.Date;
+
 public class PerfomanceMeter {
-    private long startTime = -1;
+    private Date startTime;
     private String name;
 
-    PerfomanceMeter(String name){
+    public PerfomanceMeter(){}
+
+    public PerfomanceMeter(String name){
         this.name = name;
     }
 
     public void start(){
-        this.startTime = System.currentTimeMillis();
+        this.startTime = new Date();
     }
 
     public void stop(){
-        if(startTime < 0){
+        stop(this.name);
+    }
+
+    public void stop(String nameOfPrint){
+        if(startTime == null){
             System.out.println("Не запущен таймер");
             return;
         }
-
-        double diff = (double)(System.currentTimeMillis() - startTime) / (double)1000;
-        System.out.println(name + ": " + diff);
-        startTime = -1;
+        System.out.printf("%s: %d мс.\n",nameOfPrint, new Date().getTime() - startTime.getTime());
+        startTime = null;
     }
 }

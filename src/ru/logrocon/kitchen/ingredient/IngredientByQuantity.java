@@ -8,6 +8,11 @@ public class IngredientByQuantity extends Ingredient {
         this.quantity = quantity;
     }
 
+    @Override
+    public String getName(){
+        return super.getName() + ": " + quantity + "шт.";
+    }
+
     public IngredientByQuantity(String name){
         super(name);
     }

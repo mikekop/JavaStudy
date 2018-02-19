@@ -7,6 +7,12 @@ public class IngredientByTaste extends Ingredient {
     }
 
     @Override
+    public String getName(){
+        return super.getName() + " по вкусу";
+    }
+
+
+    @Override
     public String toString(){
         return super.toString() + " по вкусу";
     }

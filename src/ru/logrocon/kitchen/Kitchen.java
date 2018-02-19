@@ -18,8 +18,14 @@ public class Kitchen {
         return Food.getByRecipe(recipes.get(foodName));
     }
 
-    public static void main(String[] args){
-        Kitchen k = new Kitchen();
-        k.getFood("Борщ");
+    public Food generateRandomFood(){
+        return Food.getByRecipe(RecipeUtils.getFakeRecipe());
+    }
+
+    public void printMenu(){
+        System.out.println("Меню кухни:");
+        for(String name: recipes.getNames()){
+            System.out.printf("\t%s;\n", name);
+        }
     }
 }

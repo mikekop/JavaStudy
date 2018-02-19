@@ -7,6 +7,7 @@ import ru.logrocon.kitchen.process.ProcessMerge;
 import ru.logrocon.kitchen.process.ProcessWait;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class RecipeUtils {
 
@@ -80,5 +81,9 @@ public class RecipeUtils {
                 .addStep(new Process("Нарезать кубиками"))
                 .addStep(new IngredientByTaste("Растительное масло"))
                 .addStep(new IngredientByTaste("Соль"));
+    }
+
+    public static Recipe getFakeRecipe(){
+        return new Recipe(UUID.randomUUID().toString());
     }
 }

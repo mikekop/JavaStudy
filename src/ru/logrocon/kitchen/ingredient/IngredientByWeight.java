@@ -9,6 +9,12 @@ public class IngredientByWeight extends Ingredient {
     }
 
     @Override
+    public String getName(){
+        return super.getName() + ": "+ weight + "гр.";
+    }
+
+
+    @Override
     public String toString(){
         String result = super.toString();
         if(weight > 0){

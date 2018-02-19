@@ -12,6 +12,12 @@ public class IngredientByVolume extends Ingredient {
         super(name);
     }
 
+
+    @Override
+    public String getName(){
+        return super.getName() + ": " + volume + "мл.";
+    }
+
     @Override
     public String toString(){
         String result = super.toString();

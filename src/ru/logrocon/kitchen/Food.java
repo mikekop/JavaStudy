@@ -39,10 +39,12 @@ public final class Food {
     @Override
     public String toString() {
 
-        StringBuilder result = new StringBuilder(this.getName());
-        result.append("\nСостав:");
-        for(Ingredient ingredient : this.getIngredients()){
-            result.append("\n\t").append(ingredient.getName());
+        StringBuilder result = new StringBuilder(getName());
+        if(!getIngredients().isEmpty()){
+            result.append("\nСостав:");
+            for(Ingredient ingredient : getIngredients()){
+                result.append("\n\t").append(ingredient.getName());
+            }
         }
 
         return result.toString();
