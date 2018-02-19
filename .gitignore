@@ -5,3 +5,6 @@ lesson2.iml
 out/.DS_Store
 out/production/Kitchen/ru/logrocon/lesson1/FirstCourse.class
 *.class
+.idea/misc.xml
+.idea/misc.xml
+*.xml

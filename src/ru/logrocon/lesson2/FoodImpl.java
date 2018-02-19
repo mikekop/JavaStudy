@@ -23,8 +23,8 @@ public class FoodImpl implements Food {
     }
 
     public void cook() {
-        System.out.println(String.format("Готовим %s Класса %s", name, this.getClass().getSimpleName()));
+        System.out.println(String.format("Готовим %s", name));
         isCook = true;
-        System.out.println(String.format("Приготовили %s Класса %s", name, this.getClass().getSimpleName()));
+        System.out.println(String.format("Приготовили %s", name));
     }
 }

@@ -8,6 +8,7 @@ public class QueueWorkerImpl implements Worker {
     public QueueWorkerImpl() {
         queue = new LinkedList<>();
     }
+    @Override
     public void start() {
         add(new Course("Борщ", Types.First,Types.Hot, Types.NoLite));
         add(new Course("Омлет", Types.Second, Types.Hot, Types.Lite));
