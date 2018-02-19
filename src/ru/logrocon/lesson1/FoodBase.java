@@ -21,4 +21,9 @@ public abstract class FoodBase implements Food {
      * Метод окончания готовки
      */
     protected abstract String finish();
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }

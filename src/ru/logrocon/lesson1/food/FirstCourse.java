@@ -9,21 +9,21 @@ import ru.logrocon.lesson1.Spices;
 public class FirstCourse extends FoodBase implements Spices {
     public FirstCourse(){
         name = "Первое блюдо";
-        addSpice();
     }
 
     @Override
     protected String prepare()
     {
+        addSpice();
         //do something
-        return "подогревается";
+        return "варится";
     }
 
     @Override
     protected String finish()
     {
         //do something
-        return "подано";
+        return "сварено";
     }
 
     @Override

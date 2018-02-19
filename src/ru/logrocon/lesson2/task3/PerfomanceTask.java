@@ -5,7 +5,7 @@ import java.util.*;
 public class PerfomanceTask {
 
     public PerfomanceTask(){
-        System.out.println("Задача по оптимизации метода");
+        System.out.println("Задача 3. Оптимизация метода");
         Random rand = new Random(47);
         Map<String, String> map = new HashMap<>();
         List<String> arrayList = new ArrayList<>();
