@@ -16,6 +16,9 @@ public abstract class ShowCaseBase implements ShowCase {
      */
     protected Map<String, Food> showCase;
 
+    /**
+     * Запуск работы витрины
+     */
     public void work() {
         Scanner sc = new Scanner(System.in);
         int var = -1;
@@ -95,6 +98,9 @@ public abstract class ShowCaseBase implements ShowCase {
         } while (var != 0);
     }
 
+    /**
+     * Добавить переданный продукт на витрину
+     */
     private void add(Food food) {
         Scanner sc = new Scanner(System.in);
         String var = "";
@@ -110,16 +116,43 @@ public abstract class ShowCaseBase implements ShowCase {
 
     @Override
     public void remove() {
+        Scanner sc = new Scanner(System.in);
+        String var = "";
+        do {
+            System.out.print("Введите наименование: ");
 
+            if (sc.hasNextLine()) {
+                var = sc.nextLine();
+                showCase.remove(var);
+            }
+        } while (var.isEmpty());
     }
 
     @Override
     public void show() {
-
+        for (Map.Entry<String, Food> sf : showCase.entrySet()) {
+            System.out.printf("%s - \"%s\"%n", sf.getValue().toString(), sf.getKey());
+        }
+        System.out.println();
     }
 
     @Override
     public void find() {
+        Scanner sc = new Scanner(System.in);
+        String var = "";
+        do {
+            System.out.print("Введите наименование для поиска: ");
 
+            if (sc.hasNextLine()) {
+                var = sc.nextLine();
+
+                Food f = showCase.get(var);
+                if (f != null) {
+                    System.out.printf("Найденное блюдо: %s%n", f.toString());
+                } else {
+                    System.out.println("Блюдо не найдено");
+                }
+            }
+        } while (var.isEmpty());
     }
 }
