@@ -1,6 +1,8 @@
 package ru.logrocon.lesson2;
 
 import ru.logrocon.lesson2.task1.ShowCase;
+import ru.logrocon.lesson2.task1.ShowCaseBase;
+import ru.logrocon.lesson2.task1.ShowCaseTask;
 import ru.logrocon.lesson2.task2.ConveyerTask;
 import ru.logrocon.lesson2.task3.PerfomanceTask;
 
@@ -22,7 +24,7 @@ public class Main {
                 var = sc.nextInt();
                 switch (var) {
                     case 1:
-                        new ShowCase();
+                        new ShowCaseTask().work();
                         break;
                     case 2:
                         new ConveyerTask().work();

@@ -114,7 +114,7 @@ public class ConveyerTask {
                         var = 0;
                         break;
                     case 4:
-                        conveyer.push(new Cookie());
+                        conveyer.offer(new Cookie());
                         var = 0;
                         break;
                     case 0:
