@@ -3,7 +3,7 @@ package ru.logrocon.kitchen;
 import java.util.Collection;
 
 /**
- * Интерфейс описывающий шаг готовки
+ * интерфейс описывающий шаг готовки
  */
 public interface Step {
 

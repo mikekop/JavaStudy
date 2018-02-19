@@ -10,7 +10,7 @@ import java.util.LinkedHashMap;
 public abstract class FoodBase implements Food {
 
     /**
-     * Имя еды
+     * имя еды
      */
     String name;
 

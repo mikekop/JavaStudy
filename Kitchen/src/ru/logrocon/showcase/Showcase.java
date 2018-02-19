@@ -3,7 +3,7 @@ package ru.logrocon.showcase;
 import ru.logrocon.kitchen.Food;
 
 /**
- * Интерфейс для витрины блюд
+ * интерфейс для витрины блюд
  */
 public interface Showcase {
     /**
