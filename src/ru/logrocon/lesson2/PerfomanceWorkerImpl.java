@@ -15,14 +15,13 @@ public class PerfomanceWorkerImpl implements Worker {
         Random rand = new Random(25);
         Map<String, String> map = new HashMap<>();
         List<String> arrayList = new ArrayList<>();
+
         for (int i = 0; i < countItems; i++){
             map.put(Integer.toString(rand.nextInt()), Integer.toString(rand.nextInt()));
             arrayList.add(Integer.toString(rand.nextInt()));
         }
-        doIt(map, arrayList);
-    }
 
-    private void doIt(Map<String, String> map, List<String> arrayList) {
+
         Date start = new Date();
         String temp = null;
         for (String s : map.keySet()) {
