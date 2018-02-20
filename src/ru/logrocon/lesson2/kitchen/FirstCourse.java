@@ -1,4 +1,4 @@
-package ru.logrocon.lesson2;
+package ru.logrocon.lesson2.kitchen;
 
 public class FirstCourse extends Food {
     public FirstCourse(String name, double weight ){

@@ -1,4 +1,4 @@
-package ru.logrocon.lesson2;
+package ru.logrocon.lesson2.kitchen;
 
 public class SecondCourse extends Food {
 

@@ -1,5 +1,7 @@
 package ru.logrocon.lesson2;
 
+import ru.logrocon.lesson2.kitchen.*;
+
 public class Main {
 
     public static void main (String[] arg)

@@ -1,10 +1,10 @@
 package ru.logrocon.lesson2;
-import com.sun.jmx.remote.internal.ArrayQueue;
+
+import ru.logrocon.lesson2.kitchen.*;
 
 import java.util.*;
 
 public class Shopwindow implements Shopwindows  {
-    // List<Food> foodList ;
     public ArrayDeque<Food> foodList;
     TreeSet<Food> foodsTreeSet;
 
@@ -42,10 +42,10 @@ public class Shopwindow implements Shopwindows  {
         StringBuilder secondCourses = new StringBuilder();
         for(Food food : foods) {
             switch (food.typeFood) {
-                case FirstCourse :
+                case FirstCourse:
                     firstCourses.append(food.displayInfos()+"\r\n");
                     break;
-                case SecondCourse :
+                case SecondCourse:
                     secondCourses.append(food.displayInfos()+"\r\n");
                     break;
             }
