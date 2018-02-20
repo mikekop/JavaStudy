@@ -1,6 +1,8 @@
-package ru.logrocon.lesson2;
+package ru.logrocon.lesson3;
 
-import ru.logrocon.lesson2.kitchen.*;
+import ru.logrocon.lesson3.kitchen.*;
+import ru.logrocon.lesson3.exceptions.*;
+
 
 import java.util.*;
 
@@ -9,18 +11,17 @@ public class Shopwindow implements Shopwindows  {
     TreeSet<Food> foodsTreeSet;
 
     public Shopwindow(){
-        //foodList = new ArrayList<>();
         foodsTreeSet = new TreeSet<>();
         foodList = new ArrayDeque<>();
     }
 
-    public Food getCourseByName (String name) {
+    public void getCourseByName (String name) throws CourseByNameException {
         for(Food food : foodList){
             if (food.name == name){
-                return food;
+                throw new CourseByNameException("Выданно блюдо :" , food);
             }
         }
-        return null;
+        throw new CourseByNameException("Блюдо не найдено" , null);
     }
 
     public Food getFirstFood()

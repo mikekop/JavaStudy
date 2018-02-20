@@ -1,4 +1,4 @@
-package ru.logrocon.lesson2.kitchen;
+package ru.logrocon.lesson3.kitchen;
 
 public abstract class Food implements Comparable<Food> {
     public String name ;

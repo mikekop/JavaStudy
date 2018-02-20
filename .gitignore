@@ -35,3 +35,15 @@ out/production/lesson3/ru/logrocon/lesson2/Main.class
 out/production/lesson3/ru/logrocon/lesson2/Shopwindow$1.class
 out/production/lesson3/ru/logrocon/lesson2/Shopwindow.class
 out/production/lesson3/ru/logrocon/lesson2/Shopwindows.class
+out/production/lesson3/ru/logrocon/lesson3/exceptions/CourseByNameException.class
+out/production/lesson3/ru/logrocon/lesson3/exceptions/ShopwindowException.class
+out/production/lesson3/ru/logrocon/lesson3/kitchen/FirstCourse.class
+out/production/lesson3/ru/logrocon/lesson3/kitchen/Food.class
+out/production/lesson3/ru/logrocon/lesson3/kitchen/Kitchen.class
+out/production/lesson3/ru/logrocon/lesson3/kitchen/Kitchens.class
+out/production/lesson3/ru/logrocon/lesson3/kitchen/SecondCourse.class
+out/production/lesson3/ru/logrocon/lesson3/kitchen/TypeFood.class
+out/production/lesson3/ru/logrocon/lesson3/Main.class
+out/production/lesson3/ru/logrocon/lesson3/Shopwindow.class
+out/production/lesson3/ru/logrocon/lesson3/Shopwindow$1.class
+out/production/lesson3/ru/logrocon/lesson3/Shopwindows.class
