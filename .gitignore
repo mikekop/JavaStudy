@@ -66,3 +66,4 @@ src/out/production/lesson3/ru/logrocon/lesson3/Shopwindow$1.class
 src/out/production/lesson3/ru/logrocon/lesson3/Shopwindow.class
 src/out/production/lesson3/ru/logrocon/lesson3/Shopwindows.class
 src/out/production/lesson3/ru/logrocon/lesson3/exceptions/GetCourseByNameException.class
+src/out/production/lesson3/ru/logrocon/lesson3/exceptions/CookException.class

@@ -26,24 +26,20 @@ public class Main {
         try {
             shopwindow.getCourseByName("Щи");
         }
-        catch ( GetCourseByNameException ex ){
+        catch ( GetCourseException ex ){
             System.out.printf("%s %s\r\n",ex.getMessage(),ex.getFood() == null ? "": ex.getFood().displayInfos());
         }
 
-        System.out.println(shopwindow.displayAllFood());
+        try {
+            shopwindow.getFirstFood();
+        }
+        catch ( GetCourseException ex ){
+            System.out.printf("%s %s\r\n",ex.getMessage(),ex.getFood() == null ? "": ex.getFood().displayInfos());
+        }
 
-//        System.out.println(shopwindow.displayAllFood());
-//
-//        Food food = shopwindow.foodList.pop();
-//        System.out.println(food != null ? "Выданно: \r\n" + food.displayInfos() : "Блюдо не найдено");
-//        food = shopwindow.foodList.pop();
-//        System.out.println(food != null ? "Выданно: \r\n" + food.displayInfos() : "Блюдо не найдено");
-//        System.out.println(shopwindow.displayAllFood());
-//        System.out.println(shopwindow.displaySortByNameFoods());
-//
-//        shopwindow.foodList.addLast(new SecondCourse("Макорошки с мясом",1000));
-//
-//        System.out.println(shopwindow.displayAllFood());
+
+        System.out.println(shopwindow.displaySortByNameFoods());
+
     }
 
 

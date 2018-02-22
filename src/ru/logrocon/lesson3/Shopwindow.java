@@ -1,6 +1,5 @@
 package ru.logrocon.lesson3;
 
-import com.sun.org.apache.bcel.internal.generic.NEW;
 import ru.logrocon.lesson3.kitchen.*;
 import ru.logrocon.lesson3.exceptions.*;
 
@@ -8,34 +7,38 @@ import ru.logrocon.lesson3.exceptions.*;
 import java.util.*;
 
 public class Shopwindow implements Shopwindows  {
-    public ArrayDeque<Food> foodList;
+    Queue<Food> foodList;
     TreeSet<Food> foodsTreeSet;
 
     public Shopwindow(){
         foodsTreeSet = new TreeSet<>();
-        foodList = new ArrayDeque<>();
+        foodList = new LinkedList<>();
     }
 
     public void addFood(Food food){
-        foodList.addLast(food);
+        foodList.offer(food);
     }
 
-    public void getCourseByName (String name) throws GetCourseByNameException {
+    public void getCourseByName (String name) throws GetCourseException {
         Iterator<Food> foodIterator = foodList.iterator();
         while (foodIterator.hasNext()){
             Food food = foodIterator.next();
             if (food.name == name){
                 foodIterator.remove();
-                throw new GetCourseByNameException("Выданно блюдо :" , food);
+                throw new GetCourseException("Выданно блюдо :" , food);
             }
         }
-        throw new GetCourseByNameException("Блюдо не найдено", null);
+        throw new GetCourseException("Блюдо не найдено", null);
     }
 
-    public Food getFirstFood()
-    {
-       return new FirstCourse("Щи",400);
+    public void getFirstFood() throws GetCourseException {
+        Food food = foodList.poll();
+        if(food!=null) {
+            throw new GetCourseException("Выданно блюдо :" , food);
+        }
+        throw new GetCourseException("Блюдо не найдено", null);
     }
+
     public String displaySortByNameFoods(){
         foodsTreeSet.addAll(foodList);
         return displayAll(foodsTreeSet);
