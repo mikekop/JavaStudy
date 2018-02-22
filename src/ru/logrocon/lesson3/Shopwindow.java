@@ -1,5 +1,6 @@
 package ru.logrocon.lesson3;
 
+import com.sun.org.apache.bcel.internal.generic.NEW;
 import ru.logrocon.lesson3.kitchen.*;
 import ru.logrocon.lesson3.exceptions.*;
 
@@ -15,20 +16,27 @@ public class Shopwindow implements Shopwindows  {
         foodList = new ArrayDeque<>();
     }
 
-    public void getCourseByName (String name) throws CourseByNameException {
-        for(Food food : foodList){
+    public void addFood(Food food){
+        foodList.addLast(food);
+    }
+
+    public void getCourseByName (String name) throws GetCourseByNameException {
+        Iterator<Food> foodIterator = foodList.iterator();
+        while (foodIterator.hasNext()){
+            Food food = foodIterator.next();
             if (food.name == name){
-                throw new CourseByNameException("Выданно блюдо :" , food);
+                foodIterator.remove();
+                throw new GetCourseByNameException("Выданно блюдо :" , food);
             }
         }
-        throw new CourseByNameException("Блюдо не найдено" , null);
+        throw new GetCourseByNameException("Блюдо не найдено", null);
     }
 
     public Food getFirstFood()
     {
        return new FirstCourse("Щи",400);
     }
-    public String sortByNameFoods(){
+    public String displaySortByNameFoods(){
         foodsTreeSet.addAll(foodList);
         return displayAll(foodsTreeSet);
     }
