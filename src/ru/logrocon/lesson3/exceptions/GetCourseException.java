@@ -1,6 +1,6 @@
 package ru.logrocon.lesson3.exceptions;
 
-import ru.logrocon.lesson3.kitchen.*;
+import ru.logrocon.lesson3.kitchen.Food;
 
 public class GetCourseException extends Exception {
 
