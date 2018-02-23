@@ -1,4 +1,4 @@
-package ru.logrocon.lesson2.task1;
+package ru.logrocon.lesson3.task1;
 
 import ru.logrocon.lesson1.Food;
 

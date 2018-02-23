@@ -1,2 +1,2 @@
 Manifest-Version: 1.0
-Main-Class: ru.logrocon.lesson2.Main
+Main-Class: ru.logrocon.lesson3.Main

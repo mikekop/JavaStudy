@@ -1,4 +1,4 @@
-package ru.logrocon.lesson2.task2;
+package ru.logrocon.lesson3.task2;
 
 import ru.logrocon.lesson1.Food;
 import ru.logrocon.lesson1.FoodException;
@@ -6,8 +6,8 @@ import ru.logrocon.lesson1.food.Cookie;
 import ru.logrocon.lesson1.food.FirstCourse;
 import ru.logrocon.lesson1.food.Pie;
 import ru.logrocon.lesson1.food.SecondCourse;
-import ru.logrocon.lesson2.task1.ShowCase;
-import ru.logrocon.lesson2.task3.PerfomanceTask;
+import ru.logrocon.lesson3.task1.ShowCase;
+import ru.logrocon.lesson3.task3.PerfomanceTask;
 
 import java.util.LinkedList;
 import java.util.NoSuchElementException;

@@ -1,10 +1,11 @@
-package ru.logrocon.lesson2.task1;
+package ru.logrocon.lesson3.task1;
 
 import ru.logrocon.lesson1.Food;
 import ru.logrocon.lesson1.food.Cookie;
 import ru.logrocon.lesson1.food.FirstCourse;
 import ru.logrocon.lesson1.food.Pie;
 import ru.logrocon.lesson1.food.SecondCourse;
+import ru.logrocon.lesson3.task1.ShowCase;
 
 import java.util.Map;
 import java.util.Scanner;

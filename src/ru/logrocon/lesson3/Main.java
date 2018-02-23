@@ -1,10 +1,8 @@
-package ru.logrocon.lesson2;
+package ru.logrocon.lesson3;
 
-import ru.logrocon.lesson2.task1.ShowCase;
-import ru.logrocon.lesson2.task1.ShowCaseBase;
-import ru.logrocon.lesson2.task1.ShowCaseTask;
-import ru.logrocon.lesson2.task2.ConveyerTask;
-import ru.logrocon.lesson2.task3.PerfomanceTask;
+import ru.logrocon.lesson3.task1.ShowCaseTask;
+import ru.logrocon.lesson3.task2.ConveyerTask;
+import ru.logrocon.lesson3.task3.PerfomanceTask;
 
 import java.util.Scanner;
 
