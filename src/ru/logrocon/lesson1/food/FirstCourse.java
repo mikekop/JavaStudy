@@ -1,6 +1,7 @@
 package ru.logrocon.lesson1.food;
 
 import ru.logrocon.lesson1.FoodBase;
+import ru.logrocon.lesson1.FoodException;
 import ru.logrocon.lesson1.Spices;
 
 /**
@@ -11,12 +12,17 @@ public class FirstCourse extends FoodBase implements Spices {
         name = "Первое блюдо";
     }
 
+    public static int spiceQnt = 3;
+
     @Override
-    protected String prepare()
-    {
-        addSpice();
-        //do something
-        return "варится";
+    protected String prepare() throws FoodException {
+        if (spiceQnt > 0) {
+            addSpice();
+            spiceQnt--;
+            return "варится";
+        } else {
+            throw new FoodException("Специи закончились");
+        }
     }
 
     @Override

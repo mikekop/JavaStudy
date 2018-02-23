@@ -8,5 +8,5 @@ public interface Food {
     /**
      * Метод для готовки
      */
-    void cook();
+    void cook() throws FoodException;
 }

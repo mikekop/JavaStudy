@@ -7,15 +7,22 @@ public abstract class FoodBase implements Food {
     protected String name;
 
 
-    public void cook() {
-        System.out.println(String.join(" ", name, prepare()));
-        System.out.println(String.join(" ", name, finish()));
+    public void cook() throws FoodException {
+        try {
+            System.out.println(String.join(" ", name, prepare()));
+            System.out.println(String.join(" ", name, finish()));
+        }
+        catch (FoodException fe)
+        {
+            System.out.println(fe.getMessage());
+            throw new FoodException(name + " приготовить нельзя");
+        }
     }
 
     /**
      * Метод готовки
      */
-    protected abstract String prepare();
+    protected abstract String prepare() throws FoodException ;
 
     /**
      * Метод окончания готовки
