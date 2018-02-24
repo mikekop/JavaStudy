@@ -29,7 +29,7 @@ public class Caller {
 
     private Caller(Class cl){
         this.cl = cl;
-        getInstance();
+        obj = getInstance();
     }
 
     /**
@@ -55,8 +55,7 @@ public class Caller {
         Object[] result = new Object[types.length];
         int i = 0;
         for(Class t : types){
-            Caller caller = new Caller(t);
-            result[i++] = caller.getInstance();
+            result[i++] = new Caller(t).getInstance();
         }
 
         return result;
@@ -73,7 +72,7 @@ public class Caller {
 
     public Caller(String className) throws ClassNotFoundException {
         cl = Class.forName(className);
-        getInstance();
+        obj = getInstance();
     }
 
     /**
@@ -82,6 +81,14 @@ public class Caller {
      */
     public Object getInstance(){
         Object result = null;
+
+        // Попробуем конструктор по дефолту
+        try {
+            result = cl.newInstance();
+            return result;
+        }catch (Exception e){
+            System.err.println("Не удалось запустить конструктор по умолчанию");
+        }
 
         if(cl.isPrimitive()){
             return Caller.getDefaultForPrimitive(cl);
@@ -98,7 +105,6 @@ public class Caller {
 
             try{
                 result = c.newInstance(initArgs);
-                obj = result;
             }catch (Exception e){
                 System.err.println("Не удалось вызвать конструктор");
                 throw new RuntimeException(e);

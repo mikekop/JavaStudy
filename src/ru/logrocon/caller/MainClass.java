@@ -21,7 +21,7 @@ class MainClass {
         try {
             c.callAll();
         }catch (CantCallFromPrimitive e){
-            System.err.println(e);
+            e.printStackTrace();
         }
 
     }
