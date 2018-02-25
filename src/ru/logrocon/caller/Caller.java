@@ -25,11 +25,50 @@ public class Caller {
     }
 
     private Class<?> cl;
-    private Object obj;
+    private Object instance;
 
     private Caller(Class cl){
         this.cl = cl;
-        obj = getInstance();
+        instance = getInstance();
+    }
+
+    /**
+     * Построние инстанса объекта, либо значения примитива
+     * @return Инстанс объекта или значение примитива
+     */
+    private Object constructInstance(){
+        Object result = null;
+
+        // Попробуем конструктор по дефолту
+        try {
+            result = cl.newInstance();
+            return result;
+        }catch (Exception e){
+            System.err.println("Не удалось запустить конструктор по умолчанию");
+        }
+
+        if(cl.isPrimitive()){
+            return Caller.getDefaultForPrimitive(cl);
+        }
+
+        if(cl == String.class){
+            return "0";
+        }
+
+        Constructor[] ctor = cl.getConstructors();
+        if(ctor.length > 0) {
+            Constructor c = ctor[0];
+            Object[] initArgs = getDefaultByTypes(c.getParameterTypes());
+
+            try{
+                result = c.newInstance(initArgs);
+            }catch (Exception e){
+                System.err.println("Не удалось вызвать конструктор");
+                throw new RuntimeException(e);
+            }
+        }
+
+        return result;
     }
 
     /**
@@ -72,7 +111,7 @@ public class Caller {
 
     public Caller(String className) throws ClassNotFoundException {
         cl = Class.forName(className);
-        obj = getInstance();
+        instance = getInstance();
     }
 
     /**
@@ -80,38 +119,11 @@ public class Caller {
      * @return Инстанс объекта или значение примитива
      */
     public Object getInstance(){
-        Object result = null;
-
-        // Попробуем конструктор по дефолту
-        try {
-            result = cl.newInstance();
-            return result;
-        }catch (Exception e){
-            System.err.println("Не удалось запустить конструктор по умолчанию");
+        if(instance == null){
+            instance = constructInstance();
         }
 
-        if(cl.isPrimitive()){
-            return Caller.getDefaultForPrimitive(cl);
-        }
-
-        if(cl == String.class){
-            return "0";
-        }
-
-        Constructor[] ctor = cl.getConstructors();
-        if(ctor.length > 0) {
-            Constructor c = ctor[0];
-            Object[] initArgs = getDefaultByTypes(c.getParameterTypes());
-
-            try{
-                result = c.newInstance(initArgs);
-            }catch (Exception e){
-                System.err.println("Не удалось вызвать конструктор");
-                throw new RuntimeException(e);
-            }
-        }
-
-        return result;
+        return instance;
     }
 
     /**
@@ -128,7 +140,7 @@ public class Caller {
             Object[] params = getDefaultByTypes(m.getParameterTypes());
             try {
                 System.out.println("Вызываем " + prettifyName(m.toString()) + "...");
-                System.out.println("Результат: " + m.invoke(obj, params));
+                System.out.println("Результат: " + m.invoke(instance, params));
             }catch (Exception e){
                 System.err.println("Не удалось вызвать метод " + prettifyName(m.toString()));
             }

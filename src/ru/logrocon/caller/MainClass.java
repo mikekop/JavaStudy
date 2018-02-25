@@ -23,6 +23,5 @@ class MainClass {
         }catch (CantCallFromPrimitive e){
             e.printStackTrace();
         }
-
     }
 }
