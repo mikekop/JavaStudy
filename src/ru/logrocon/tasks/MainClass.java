@@ -1,12 +1,5 @@
 package ru.logrocon.tasks;
 
-import java.util.LinkedList;
-import java.util.List;
-
-class Animal {}
-class Dog extends Animal {}
-class Cat extends Animal {}
-
 public class MainClass {
 
     private static TaskRunner[] runners = {
