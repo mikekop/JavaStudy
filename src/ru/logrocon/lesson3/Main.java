@@ -3,6 +3,7 @@ package ru.logrocon.lesson3;
 import ru.logrocon.lesson3.task1.ShowCaseTask;
 import ru.logrocon.lesson3.task2.ConveyerTask;
 import ru.logrocon.lesson3.task3.PerfomanceTask;
+import ru.logrocon.lesson3.task4.RaflectionMain;
 
 import java.util.Scanner;
 
@@ -16,6 +17,7 @@ public class Main {
             System.out.println("1 - Витрина");
             System.out.println("2 - Конвеер");
             System.out.println("3 - Оптимизация метода");
+            System.out.println("4 - Рефлексия");
             System.out.println("0 - Выход");
 
             if (sc.hasNextInt()) {
@@ -29,6 +31,9 @@ public class Main {
                         break;
                     case 3:
                         new PerfomanceTask();
+                        break;
+                    case 4:
+                        new RaflectionMain();
                         break;
                     case 0:
                         System.out.println("До встречи!");
