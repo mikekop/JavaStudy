@@ -1,4 +1,4 @@
-package ru.logrocon.lesson2;
+package ru.logrocon.lesson3;
 
 import java.util.Comparator;
 
@@ -37,4 +37,12 @@ public class Utils {
         String Name2 = f2.getName().toUpperCase();
         return Name1.compareTo(Name2);
     };
+
+    public static void printError(Exception ex){
+        System.out.println(String.format("%s %s", ex.getClass().getName(), ex.getMessage()));
+    }
+
+    public static boolean getRandomBoolean() {
+        return Math.random() < 0.5;
+    }
 }

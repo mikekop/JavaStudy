@@ -1,8 +1,10 @@
-package ru.logrocon.lesson2;
+package ru.logrocon.lesson3;
 
 
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import static ru.logrocon.lesson3.Utils.printError;
 
 public class FinderWorkerImpl implements Worker {
 
@@ -28,21 +30,25 @@ public class FinderWorkerImpl implements Worker {
     }
     @Override
     public void start() {
-        fill();
-        find();
+        try {
+            fill();
+            find();
+        }
+        catch (Exception ex) {
+            printError(ex);
+        }
     }
 
-    public void fill() {
+    public void fill()  throws ArgumentNullException {
         foodList.add(new Course("Окрошка",Types.First, Types.NoHot, Types.Lite));
         foodList.add(new Course("Щи", Types.First, Types.Hot, Types.NoLite));
         foodList.add(new Course("Борщ", Types.First,Types.Hot, Types.NoLite));
         foodList.add(new Course("Омлет", Types.Second, Types.Hot, Types.Lite));
-        foodList.add(new Course("Шашлык", Types.Second, Types.Hot, Types.Lite));
-        foodList.add(new Course("Эклер", Types.Desert, Types.NoHot));
+        foodList.add(new Course("", Types.Second, Types.Hot, Types.Lite));
         foodList.add(new Course("Ватрушка", Types.Desert, Types.NoHot));
     }
 
-    public void find() {
+    public void find() throws Exception {
         Scanner sc = new Scanner(System.in);
         System.out.println("Введите текст для поиска");
         String inputStr = sc.next();
@@ -53,9 +59,9 @@ public class FinderWorkerImpl implements Worker {
             ArrayList<Food> result = findFoodByName(inputStr);
             if (result != null) {
                 if (result.isEmpty()) {
-                    System.out.println("Ничего не нйдено");
+                    throw new Exception("Ничего не найдено");
                 }
-                else if (result.size() == 1) {
+                if (result.size() == 1) {
                     System.out.println(String.format("Найден один объект %s", result.get(0).getInfo()));
                 }
                 else {
@@ -69,7 +75,7 @@ public class FinderWorkerImpl implements Worker {
                                 result.sort(Utils.NameComparator);
                                 break;
                                 default:
-                                    System.out.println("Мимо, по этому не упорядочено");
+                                    throw new ArgumentNullException("sort order");
                         }
                     }
                     for (Food food: result) {

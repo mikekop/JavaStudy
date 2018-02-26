@@ -1,4 +1,4 @@
-package ru.logrocon.lesson2;
+package ru.logrocon.lesson3;
 
 public enum Types {
     Hot,

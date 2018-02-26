@@ -1,13 +1,11 @@
-package ru.logrocon.lesson2;
+package ru.logrocon.lesson3;
 
-import java.util.ArrayList;
-
-import static ru.logrocon.lesson2.Utils.getTypeName;
+import static ru.logrocon.lesson3.Utils.getTypeName;
 
 public class Course extends FoodImpl {
     private Types[] types;
 
-    Course(String name, Types... types){
+    Course(String name, Types... types) throws ArgumentNullException{
         super(name);
         this.types = types;
     }

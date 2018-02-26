@@ -1,4 +1,4 @@
-package ru.logrocon.lesson2;
+package ru.logrocon.lesson3;
 
 public interface Food {
     /*
@@ -12,5 +12,5 @@ public interface Food {
     /*
     * Приготовление еды
      */
-    void cook();
+    void cook() throws FoodException;
 }
