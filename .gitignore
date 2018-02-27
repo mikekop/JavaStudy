@@ -9,3 +9,5 @@
 out/artifacts/lesson4_war_exploded/index.jsp
 out/artifacts/lesson4_war_exploded/META-INF/MANIFEST.MF
 out/artifacts/lesson4_war_exploded/WEB-INF/web.xml
+.idea/libraries/Maven__javax_servlet_jsp_javax_servlet_jsp_api_2_3_1.xml
+.idea/libraries/Maven__javax_servlet_javax_servlet_api_4_0_0.xml
