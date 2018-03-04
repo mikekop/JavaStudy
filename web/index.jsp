@@ -7,21 +7,31 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>My super project!</title>
-</head>
-<body>
-<!-- header -->
-<div>
-  <h1>Super app!</h1>
-</div>
-
-<div>       <!-- content -->
-  <div>    <!-- buttons holder -->
-    <button onclick="location.href='/list'">List users<//button>
-    <button onclick="location.href='/add'">Add user<//button>
-  </div>
-</div>
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <title>Web</title>
+  </head>
+  <body>
+  <!-- header -->
+    <div align="center" >
+      <br>
+      <br>
+      <form method="post" action="redirect">
+        <table >
+          <tr>
+              <td>
+                <label>ФИО:
+                  <input type="text" name="name"><br />
+                </label>
+              </td>
+          </tr>
+          <tr>
+            <td>
+                <button type="submit">Отправить</button>
+            </td>
+          </tr>
+        </table>
+      </form>
+    </div>
+  </body>
 </html>

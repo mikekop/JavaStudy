@@ -7,4 +7,9 @@
         <servlet-name>redirect</servlet-name>
         <servlet-class>app.servlets.RedirectServlet</servlet-class>
     </servlet>
+
+    <servlet-mapping>
+        <servlet-name>redirect</servlet-name>
+        <url-pattern>/redirect</url-pattern>
+    </servlet-mapping>
 </web-app>
