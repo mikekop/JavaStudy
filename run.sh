@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 
-rm -rf ./target/
+#mvn tomcat:run
 
-mvn package &&
-cp ./target/app-1.war $CATALINA_HOME/webapps &&
-${CATALINA_HOME}/bin/catalina.sh stop &&
-${CATALINA_HOME}/bin/catalina.sh start
+ant publish &&
+ant restart

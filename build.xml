@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<project name="app" default="war" >
+
+    <property environment="env"/>
+    <property file="build.properties"/>
+
+    <path id="compile.classpath">
+        <fileset dir="${appserver.lib}">
+            <include name="servlet-api.jar"/>
+        </fileset>
+    </path>
+
+    <target name="clean">
+        <delete dir="${build.baseDir}" />
+    </target>
+
+    <target name="init" depends="clean">
+        <mkdir dir="${build.classes}" />
+    </target>
+
+    <target name="compile" depends="init">
+        <javac destdir="${build.classes}" includeantruntime="false">
+            <src path="${src.dir}"/>
+            <classpath refid="compile.classpath"/>
+        </javac>
+    </target>
+
+    <target name="war" depends="compile">
+        <war destfile="${build.war}" webxml="${web.dir}/WEB-INF/web.xml">
+            <fileset dir="${web.dir}" />
+            <classes dir="${build.classes}" />
+        </war>
+    </target>
+
+    <target name="publish" depends="war">
+        <copy file="${build.war}" overwrite="true" todir="${deploy.path}" />
+    </target>
+
+    <target name="tomcat-stop">
+        <exec executable="${appserver.home}/bin/catalina.sh">
+            <arg value="stop"/>
+        </exec>
+    </target>
+
+    <target name="tomcat-start">
+        <exec executable="${appserver.home}/bin/catalina.sh">
+            <arg value="start"/>
+        </exec>
+    </target>
+
+    <target name="tomcat-restart">
+        <antcall target="tomcat-stop" />
+        <antcall target="tomcat-start" />
+    </target>
+
+</project>
