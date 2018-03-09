@@ -10,7 +10,7 @@ public class Logout extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)throws IOException, ServletException{
         request.getSession().invalidate();
-        request.setAttribute("successMessage", "Вы успешно вышли из системы");
-        request.getRequestDispatcher("/index.jsp").forward(request,response);
+
+        response.sendRedirect(request.getContextPath() + "/");
     }
 }

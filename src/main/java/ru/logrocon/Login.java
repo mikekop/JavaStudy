@@ -4,6 +4,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 public class Login extends HttpServlet {
@@ -16,13 +17,14 @@ public class Login extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
         String name = request.getParameter("name");
         String pass = request.getParameter("pass");
+        HttpSession session = request.getSession();
 
         if(name.equals("admin") && pass.equals("admin")){
-            request.getSession().setAttribute("name", name);
-            request.setAttribute("successMessage", "Вы успешно авторизованы");
-            request.getRequestDispatcher("/info.jsp").forward(request, response);
+            session.setAttribute("name", name);
+            session.setAttribute("successMessage", "Вы успешно авторизованы");
+            response.sendRedirect(request.getContextPath() + "/info");
         }else{
-            request.setAttribute("errorMessage", "Неверный логин или пароль");
+            session.setAttribute("errorMessage", "Неверный логин или пароль");
             request.getRequestDispatcher("/login.jsp").forward(request,response);
         }
     }

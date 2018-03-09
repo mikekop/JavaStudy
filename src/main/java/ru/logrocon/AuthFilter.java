@@ -10,6 +10,9 @@ import java.util.StringTokenizer;
 
 public class AuthFilter implements Filter {
 
+    /**
+     * Разрешенные урлы (получаю из конфига)
+     */
     private ArrayList<String> allowedUrls;
 
     @Override
@@ -19,28 +22,35 @@ public class AuthFilter implements Filter {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest req = (HttpServletRequest) servletRequest;
         HttpServletResponse res = (HttpServletResponse) servletResponse;
+        HttpSession session = req.getSession(false);
+        String uri = req.getRequestURI();
 
-        String url = req.getServletPath();
-        // Если урл не находится в списке доступа для всех
-        if(!allowedUrls.contains(url)){
-            HttpSession session = req.getSession(false);
-            // Нет сессии - не авторизованы
-            if(session == null){
-                res.sendRedirect("/");
-            }
+        String loginURI = req.getContextPath() + "/login";
+        boolean loggedIn = session != null && session.getAttribute("name") != null;
+
+        // Если мы на странице логина
+        boolean loginRequest = req.getRequestURI().equals(loginURI);
+
+        if(allowedUrls.contains(uri) || loginRequest || loggedIn){
+            filterChain.doFilter(req, res);
+        }else{
+            session = req.getSession(true);
+            // Придется схитрить и выставить сессию а потом затереть после отображения
+            session.setAttribute("errorMessage", "Ресурс доступен только авторизованным пользователям!");
+            res.sendRedirect(loginURI);
         }
 
-        filterChain.doFilter(req, res);
     }
     @Override
     public void init(FilterConfig filterConfig) {
         String urls = filterConfig.getInitParameter("avoid-urls");
         StringTokenizer token = new StringTokenizer(urls, ",");
+        String contextPath = filterConfig.getServletContext().getContextPath();
 
         allowedUrls = new ArrayList<>();
 
         while (token.hasMoreTokens()){
-            allowedUrls.add(token.nextToken());
+            allowedUrls.add(contextPath + token.nextToken());
         }
     }
 }

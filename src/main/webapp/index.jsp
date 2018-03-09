@@ -3,5 +3,12 @@
 
 <t:genericpage>
     <jsp:attribute name="title">Информация</jsp:attribute>
-    <jsp:attribute name="h1">Привет всем :)</jsp:attribute>
+    <jsp:body>
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4">Привет всем! :)</h1>
+        <p class="lead">Эту страницу видят все, в том числе и не авторизованные пользователи.</p>
+      </div>
+    </div>
+    </jsp:body>
 </t:genericpage>

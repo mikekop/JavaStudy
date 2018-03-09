@@ -5,6 +5,22 @@
          version="3.1">
 
     <display-name>Тестовый проект с сервлетом</display-name>
+
+    <filter>
+        <filter-name>AuthFilter</filter-name>
+        <filter-class>
+            ru.logrocon.AuthFilter
+        </filter-class>
+        <init-param>
+            <param-name>avoid-urls</param-name>
+            <param-value>/</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>AuthFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
     <servlet>
         <servlet-name>main</servlet-name>
         <jsp-file>/index.jsp</jsp-file>
