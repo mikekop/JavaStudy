@@ -2,7 +2,7 @@
 <%@attribute name="title" fragment="true" %>
 <%@attribute name="style" fragment="true" %>
 <!doctype html>
-<html lang="en">
+<html lang="ru">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">

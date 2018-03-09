@@ -1,7 +1,7 @@
 .idea
 *.iml
 target
-# Created by .ignore support plugin (hsz.mobi)
+lib
 *.class
 *.log
 *.ctxt

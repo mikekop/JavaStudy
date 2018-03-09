@@ -7,8 +7,7 @@
     <display-name>Тестовый проект с сервлетом</display-name>
     <servlet>
         <servlet-name>main</servlet-name>
-        <servlet-class>ru.logrocon.Main</servlet-class>
-        <load-on-startup>1</load-on-startup>
+        <jsp-file>/index.jsp</jsp-file>
     </servlet>
 
     <servlet>

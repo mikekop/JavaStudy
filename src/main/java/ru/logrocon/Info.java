@@ -1,13 +1,8 @@
 package ru.logrocon;
 
 import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 import java.io.IOException;
-
-import static ru.logrocon.CookieHelper.*;
 
 public class Info extends HttpServlet {
 
@@ -17,17 +12,18 @@ public class Info extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String name = getCookieValue("name", request);
-        request.setAttribute("name", name);
+        request.setAttribute("name", request.getSession().getAttribute("name"));
 
-        request.getRequestDispatcher("/info.jsp").forward(request, response);
+        request.getRequestDispatcher("info.jsp").forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
         String name = request.getParameter("name");
-        addCookie("name", name, response);
+
+        request.getSession().setAttribute("name", name);
 
         response.sendRedirect(request.getContextPath()+"/info");
     }
