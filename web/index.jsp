@@ -9,6 +9,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <title>Web</title>
   </head>
   <body>
@@ -16,18 +17,37 @@
     <div align="center" >
       <br>
       <br>
-      <form method="post" action="redirect">
+      <form method="post" action="authorization">
         <table >
           <tr>
               <td>
-                <label>ФИО:
-                  <input type="text" name="name"><br />
-                </label>
+                <label>Login:</label>
+              </td>
+              <td>
+                <input type="text" name="login"><br />
               </td>
           </tr>
           <tr>
             <td>
-                <button type="submit">Отправить</button>
+              <label>Password:</label>
+            </td>
+            <td>
+              <input type="password" name="password"><br />
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2" align="right">
+                <button type="submit">Sign in</button>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2" align="left">
+              <a href="publicPage.jsp" id="publicPage">go Public Page</a>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2" align="left" >
+              <a heref="privatePage.jsp" id="privatePage">go Private Page</a>
             </td>
           </tr>
         </table>
@@ -35,3 +55,21 @@
     </div>
   </body>
 </html>
+
+<script>
+      $( document ).ready(function() {
+          $("#privatePage").on("click", "a", function(e){
+              d = "false";
+              <%
+                String isAuthorized = (String)session.getAttribute("isAuthorized");
+                if (isAuthorized == "true") {
+                  out.print("d = \"true\"");
+                }
+              %>
+              if (d != "true"){
+                  e.preventDefault(); //отменяем переход по ссылке
+                  alert("No access!");
+              }
+          });
+      });
+</script>

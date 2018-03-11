@@ -14,3 +14,7 @@ out/artifacts/lesson4_war_exploded/WEB-INF/web.xml
 .idea/workspace.xml___jb_tmp___
 out/artifacts/lesson4_war_exploded/helloPage.jsp
 out/artifacts/lesson4_war_exploded/WEB-INF/classes/app/servlets/RedirectServlet.class
+.idea/uiDesigner.xml
+out/artifacts/lesson4_war_exploded/privatePage.jsp
+out/artifacts/lesson4_war_exploded/publicPage.jsp
+out/artifacts/lesson4_war_exploded/WEB-INF/classes/app/servlets/AuthorizationServlet.class
