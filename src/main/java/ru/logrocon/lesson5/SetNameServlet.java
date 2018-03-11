@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class HelloWorldServlet extends HttpServlet {
+public class SetNameServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html;charset=utf-8");
@@ -17,6 +17,6 @@ public class HelloWorldServlet extends HttpServlet {
 
         PrintWriter pw = resp.getWriter();
         pw.printf("<H1>Привет, %s</H1>", fio);
-        pw.printf("<a href=\"/HelloWorldServlet\">Назад</a>");
+        pw.printf("<a href=\"./privatePage.jsp\">Назад</a>");
     }
 }
