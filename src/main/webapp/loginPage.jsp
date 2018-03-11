@@ -6,9 +6,10 @@
 <TITLE>Урок 5. Приватная страница</TITLE>
 </HEAD>
 <BODY>
-<FORM METHOD=GET ACTION="SetNameServlet">
-Вы находитесь на личной странице. <b> Введите свое ФИО
-<INPUT TYPE=TEXT NAME="fio"><P>
+<FORM METHOD=GET ACTION="AuthServlet">
+Страница авторизации <P>
+Логин: <INPUT TYPE=TEXT NAME="login"><P>
+Пароль: <INPUT TYPE=PASSWORD NAME="password"><P>
 <INPUT TYPE=SUBMIT>
 </FORM>
 </BODY>

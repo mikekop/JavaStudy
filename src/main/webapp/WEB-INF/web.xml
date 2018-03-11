@@ -13,17 +13,19 @@
     <url-pattern>/SetNameServlet</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+      <servlet-name>AuthServlet</servlet-name>
+      <servlet-class>ru.logrocon.lesson5.AuthServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+      <servlet-name>AuthServlet</servlet-name>
+      <url-pattern>/AuthServlet</url-pattern>
+  </servlet-mapping>
+
   <filter>
     <filter-name>AuthFilter</filter-name>
     <filter-class>ru.logrocon.lesson5.AuthFilter</filter-class>
-    <init-param>
-      <param-name>login</param-name>
-      <param-value>admin</param-value>
-    </init-param>
-    <init-param>
-      <param-name>login</param-name>
-      <param-value>admin</param-value>
-    </init-param>
   </filter>
 
   <filter-mapping>
