@@ -47,7 +47,7 @@
           </tr>
           <tr>
             <td colspan="2" align="left" >
-              <a heref="privatePage.jsp" id="privatePage">go Private Page</a>
+              <a href="privatePage.jsp" id="privatePage">go Private Page</a>
             </td>
           </tr>
         </table>
