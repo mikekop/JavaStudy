@@ -20,6 +20,7 @@ public class AuthorizationFilter implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response,
                          FilterChain chain) throws IOException, ServletException {
 
+        
         String login = request.getParameter("login");
         String password = request.getParameter("password");
 
@@ -31,8 +32,7 @@ public class AuthorizationFilter implements Filter {
             httpResponse.sendRedirect("publicPage.jsp");
         }
 
-
-        //chain.doFilter(request, response);  // вызываем следующий фильтр. В этом примере нам это не понадобится.
+        //chain.doFilter(request, response);
     }
 
     public void destroy() {
