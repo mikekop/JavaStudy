@@ -18,43 +18,29 @@ public class AuthServlet extends HttpServlet {
         String password = req.getParameter("password");
 
         HttpSession session = req.getSession();
+        if (session != null) {
+            boolean userValid = false;
 
-        boolean userValid = false;
+            try {
+                Database db = (Database) getServletContext().getAttribute("db");
+                ResultSet result = db.execSql(
+                        "select * from dbo.\"Users\" " +
+                                "where \"UserName\" = '" + login.toLowerCase() + "' " +
+                                "and \"Password\" = '" + password + "' " +
+                                "and \"DateOff\" is null");
+                userValid = result.next();
 
-        String urlDb = "jdbc:postgresql://52.166.138.17:5432/IM";
-        String userDb = "postgres";
-        String passwordDb = "rcut12345";
-        Connection conn = null;
-        try {
-            Class.forName("org.postgresql.Driver");
-            conn = DriverManager.getConnection(urlDb, userDb, passwordDb);
-            Statement stat = conn.createStatement();
-            ResultSet result = stat.executeQuery(
-                    "select * from dbo.\"Users\" " +
-                            "where \"UserName\" = '" + login.toLowerCase() + "' " +
-                            "and \"Password\" = '" + password + "' " +
-                            "and \"DateOff\" is null");
-            userValid = result.next();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally{
-            if (conn != null){
-                try {
-                    conn.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-        }
 
-        if (userValid) {
-            session = req.getSession();
-            session.setAttribute("isAuthorize", true);
-            resp.sendRedirect(req.getContextPath());
-        }
-        else {
-            resp.sendRedirect("./loginPage.jsp");
+            if (userValid) {
+                session.setAttribute("isAuthorize", true);
+                session.setAttribute("login", login);
+                resp.sendRedirect(req.getContextPath());
+            } else {
+                resp.sendRedirect("./loginPage.jsp");
+            }
         }
     }
 }

@@ -4,6 +4,7 @@ import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -17,6 +18,7 @@ public class AuthFilter implements Filter {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest req = (HttpServletRequest) servletRequest;
+
         try {
             HttpSession session = req.getSession();
             if (session != null) {
@@ -34,11 +36,6 @@ public class AuthFilter implements Filter {
         catch (Exception e) {
             e.printStackTrace();
         }
-        finally {
-            req.getRequestedSessionId();
-            req.getRequestURL();
-        }
-
     }
 
     @Override
