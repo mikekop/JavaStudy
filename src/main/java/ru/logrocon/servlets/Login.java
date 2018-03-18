@@ -1,6 +1,7 @@
 package ru.logrocon.servlets;
 
 import ru.logrocon.utils.DBManager;
+import ru.logrocon.utils.SocketSender;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,10 +13,10 @@ import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 @WebServlet(name = "login", urlPatterns = {"/login"})
 public class Login extends HttpServlet {
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
         request.getRequestDispatcher("/login.jsp").forward(request, response);
@@ -23,11 +24,16 @@ public class Login extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
+        SocketSender socketSender = new SocketSender();
+
         String name = request.getParameter("name");
         String pass = request.getParameter("pass");
+
+        socketSender.println(String.format("Зарегистрирована попытка авторизации %s:%s", name, pass));
+
         HttpSession session = request.getSession(true);
 
-        // TODO: вынести все в отдельное место
+        // TODO: вынести работу с данными из БД за слой абстракции (репозитории?)
         DBManager db = (DBManager) getServletContext().getAttribute("db");
 
         String sql = "select id, login from users where login=? and password=?";
@@ -41,17 +47,21 @@ public class Login extends HttpServlet {
             if(rs.next()){
                 // Запомним в сессию данные
                 session.setAttribute("name", rs.getString("login"));
-                session.setAttribute("userId", rs.getInt("id"));
                 session.setAttribute("successMessage", "Вы успешно авторизованы");
+                socketSender.println("Пользователь успешно авторизован");
                 response.sendRedirect("info.jsp");
             }else{
                 session.setAttribute("errorMessage", "Неверный логин или пароль");
+                socketSender.println("Пользователь не найден");
                 request.getRequestDispatcher("/login.jsp").forward(request,response);
             }
             rs.close();
         }catch (SQLException e){
             session.setAttribute("errorMessage", "Произошла ошибка");
             request.getRequestDispatcher("/login.jsp").forward(request,response);
+        }finally {
+            socketSender.println("Процесс авторизации окончен");
+            socketSender.dispose();
         }
     }
 }

@@ -15,10 +15,16 @@ gretty {
     // Чтобы gretty запускал в томкате
     servletContainer = 'tomcat8'
 }
-
-repositories {
-    mavenCentral()
+allprojects {
+    repositories {
+        mavenCentral()
+    }
 }
+
+subprojects {
+    version = "1.0"
+}
+
 
 dependencies {
     compile 'com.microsoft.sqlserver:mssql-jdbc:6.4.0.jre8'
