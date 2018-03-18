@@ -1,0 +1,32 @@
+plugins {
+    id 'war'
+    id 'org.akhikhl.gretty' version '1.4.2'
+}
+
+group 'ru.logrocon'
+version '1'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+gretty {
+    // Чтобы gretty запускал в томкате
+    servletContainer = 'tomcat8'
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    // Для поддержки jstl
+    providedCompile 'javax.servlet:jstl'
+    // ProvidedCompile предоставляется плагином war
+    providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
+    // Тестирования пока нет, не будем пихать зависимости
+//    testCompile 'junit:junit:4.12'
+}
+
+

@@ -1,9 +1,0 @@
-<ivy-module version="2.0">
-    <info organisation="ru.logrocon" module="webapp"/>
-
-    <dependencies>
-        <dependency org="javax.servlet" name="javax.servlet-api" rev="3.1.0"/>
-        <dependency org="javax.servlet" name="jstl" rev="1.2"/>
-
-    </dependencies>
-</ivy-module>
