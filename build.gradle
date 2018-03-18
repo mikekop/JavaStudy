@@ -17,10 +17,11 @@ gretty {
 }
 
 repositories {
-    jcenter()
+    mavenCentral()
 }
 
 dependencies {
+    compile 'com.microsoft.sqlserver:mssql-jdbc:6.4.0.jre8'
     // Для поддержки jstl
     providedCompile 'javax.servlet:jstl'
     // ProvidedCompile предоставляется плагином war

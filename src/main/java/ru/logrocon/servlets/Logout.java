@@ -1,4 +1,4 @@
-package ru.logrocon;
+package ru.logrocon.servlets;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

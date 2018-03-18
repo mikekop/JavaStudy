@@ -1,4 +1,4 @@
-package ru.logrocon;
+package ru.logrocon.filters;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;

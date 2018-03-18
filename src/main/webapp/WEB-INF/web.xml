@@ -5,14 +5,36 @@
          version="3.1">
 
     <display-name>Тестовый проект с сервлетом</display-name>
+
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
 
+    <context-param>
+        <param-name>url</param-name>
+        <param-value>jdbc:sqlserver://localhost:1401</param-value>
+    </context-param>
+    <context-param>
+        <param-name>database</param-name>
+        <param-value>java_study</param-value>
+    </context-param>
+    <context-param>
+        <param-name>user_name</param-name>
+        <param-value>SA</param-value>
+    </context-param>
+    <context-param>
+        <param-name>password</param-name>
+        <param-value>Olenevod824882</param-value>
+    </context-param>
+    <context-param>
+        <param-name>connector</param-name>
+        <param-value>com.microsoft.sqlserver.jdbc.SQLServerDriver</param-value>
+    </context-param>
+
     <filter>
         <filter-name>AuthFilter</filter-name>
         <filter-class>
-            ru.logrocon.AuthFilter
+            ru.logrocon.filters.AuthFilter
         </filter-class>
         <init-param>
             <param-name>avoid-urls</param-name>
