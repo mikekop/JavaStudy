@@ -31,6 +31,10 @@
   <filter-mapping>
     <filter-name>AuthFilter</filter-name>
     <servlet-name>SetNameServlet</servlet-name>
+  </filter-mapping>
+
+  <filter-mapping>
+    <filter-name>AuthFilter</filter-name>
     <url-pattern>/privatePage.jsp</url-pattern>
   </filter-mapping>
 

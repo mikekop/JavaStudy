@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 public class AuthFilter implements Filter {
 
@@ -15,18 +16,29 @@ public class AuthFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        servletResponse.setContentType("text/html;charset=utf-8");
-        HttpServletRequest req = (HttpServletRequest)servletRequest;
-        HttpSession session = req.getSession();
-        Object isAuthorizeParam = session.getAttribute("isAuthorize");
-        if (isAuthorizeParam != null) {
-            boolean isAuthorize = Boolean.parseBoolean(isAuthorizeParam.toString());
-            if (isAuthorize) {
-                filterChain.doFilter(servletRequest, servletResponse);
-                return;
+        HttpServletRequest req = (HttpServletRequest) servletRequest;
+        try {
+            HttpSession session = req.getSession();
+            if (session != null) {
+                Object isAuthorizeParam = session.getAttribute("isAuthorize");
+                if (isAuthorizeParam != null) {
+                    boolean isAuthorize = Boolean.parseBoolean(isAuthorizeParam.toString());
+                    if (isAuthorize) {
+                        filterChain.doFilter(servletRequest, servletResponse);
+                        return;
+                    }
+                }
             }
+            ((HttpServletResponse) servletResponse).sendRedirect("./loginPage.jsp");
         }
-        ((HttpServletResponse)servletResponse).sendRedirect("./loginPage.jsp");
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        finally {
+            req.getRequestedSessionId();
+            req.getRequestURL();
+        }
+
     }
 
     @Override
