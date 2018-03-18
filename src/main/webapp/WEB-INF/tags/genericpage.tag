@@ -54,7 +54,7 @@
                   </li>
                   <c:if test="${isAuthorized}">
                   <li class="nav-item">
-                    <a class="nav-link" href="${context}/info">Личный кабинет</a>
+                    <a class="nav-link" href="info.jsp">Личный кабинет</a>
                   </li>
                   </c:if>
                   <c:if test="${not isAuthorized}">
