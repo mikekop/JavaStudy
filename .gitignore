@@ -42,3 +42,4 @@ target/classes/app/servlets/AuthorizationServlet.class
 target/classes/hibernate.cfg.xml
 target/classes/user.hbm.xml
 .idea/libraries/Maven__dom4j_dom4j_1_6_1.xml
+

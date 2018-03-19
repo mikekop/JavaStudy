@@ -30,6 +30,4 @@
         <servlet-name>authorization</servlet-name>
     </filter-mapping>
 
-
-
 </web-app>
