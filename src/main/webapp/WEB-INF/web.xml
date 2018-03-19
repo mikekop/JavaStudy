@@ -56,11 +56,11 @@
     </listener>
     <context-param>
         <param-name>urlDb</param-name>
-        <param-value>jdbc:postgresql://52.166.138.17:5432/</param-value>
+        <param-value>jdbc:postgresql://XXX:5432/</param-value>
     </context-param>
     <context-param>
         <param-name>database</param-name>
-        <param-value>IM</param-value>
+        <param-value>XX</param-value>
     </context-param>
     <context-param>
         <param-name>logPath</param-name>
@@ -68,11 +68,11 @@
     </context-param>
     <context-param>
         <param-name>userDb</param-name>
-        <param-value>postgres</param-value>
+        <param-value>XXX</param-value>
     </context-param>
     <context-param>
         <param-name>passwordDb</param-name>
-        <param-value>rcut12345</param-value>
+        <param-value>XXX</param-value>
     </context-param>
 
 </web-app>
