@@ -1,5 +1,7 @@
 package ru.logrocon.filters;
 
+import ru.logrocon.utils.logging.FileLogger;
+
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -9,6 +11,8 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 public class AuthFilter implements Filter {
+
+    private static final FileLogger logger = FileLogger.getLogger(AuthFilter.class);
 
     /**
      * Разрешенные урлы (получаю из конфига)
@@ -43,7 +47,9 @@ public class AuthFilter implements Filter {
     }
     @Override
     public void init(FilterConfig filterConfig) {
+        logger.info("Заполнение фильтра");
         String urls = filterConfig.getInitParameter("avoid-urls");
+        logger.info("Разрешены следующие урлы: " + urls);
         StringTokenizer token = new StringTokenizer(urls, ",");
         String contextPath = filterConfig.getServletContext().getContextPath();
 
@@ -51,6 +57,7 @@ public class AuthFilter implements Filter {
 
         while (token.hasMoreTokens()){
             allowedUrls.add(contextPath + token.nextToken());
+
         }
     }
 }

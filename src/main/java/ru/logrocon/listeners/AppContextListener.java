@@ -1,6 +1,7 @@
 package ru.logrocon.listeners;
 
 import ru.logrocon.utils.DBManager;
+import ru.logrocon.utils.logging.FileLogger;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
@@ -9,8 +10,12 @@ import javax.servlet.annotation.WebListener;
 
 @WebListener
 public class AppContextListener implements ServletContextListener {
+
+    private static FileLogger logger = FileLogger.getLogger(AppContextListener.class);
+
     @Override
     public void contextInitialized(ServletContextEvent servletContextEvent) {
+        logger.info("Инициализация контекста сервлета");
         ServletContext servletContext = servletContextEvent.getServletContext();
         String url = servletContext.getInitParameter("url");
         String userName = servletContext.getInitParameter("user_name");

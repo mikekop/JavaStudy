@@ -1,6 +1,7 @@
 package ru.logrocon.servlets;
 
 import ru.logrocon.utils.DBManager;
+import ru.logrocon.utils.logging.FileLogger;
 import ru.logrocon.utils.SocketSender;
 
 import javax.servlet.ServletException;
@@ -16,6 +17,8 @@ import java.sql.SQLException;
 
 @WebServlet(name = "login", urlPatterns = {"/login"})
 public class Login extends HttpServlet {
+
+    private static FileLogger logger = FileLogger.getLogger(Login.class);
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException{
@@ -58,6 +61,7 @@ public class Login extends HttpServlet {
             rs.close();
         }catch (SQLException e){
             session.setAttribute("errorMessage", "Произошла ошибка");
+            logger.error(e.getMessage());
             request.getRequestDispatcher("/login.jsp").forward(request,response);
         }finally {
             socketSender.println("Процесс авторизации окончен");

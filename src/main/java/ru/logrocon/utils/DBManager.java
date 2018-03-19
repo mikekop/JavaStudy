@@ -1,8 +1,13 @@
 package ru.logrocon.utils;
 
+import ru.logrocon.utils.logging.FileLogger;
+
 import java.sql.*;
 
 public class DBManager {
+
+    private static FileLogger logger = FileLogger.getLogger(DBManager.class);
+
     protected Connection conn;
 
     public DBManager(String url, String userName, String password, String database, String connectorType){
@@ -13,6 +18,7 @@ public class DBManager {
             conn = DriverManager.getConnection(connectionUrl);
         } catch (Exception e) {
             // Выбросим ошибку
+            logger.error("Не удалось подключиться к БД " + e.getMessage());
             throw new RuntimeException(e);
         }
     }
@@ -26,7 +32,7 @@ public class DBManager {
             try {
                 conn.close();
             }catch (SQLException e){
-                e.printStackTrace();
+                logger.error("Не удалось закрыть соединение с БД " + e.getMessage());
             }
         }
     }
