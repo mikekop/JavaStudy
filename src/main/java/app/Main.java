@@ -1,16 +1,28 @@
 package app;
 
-public class Main {
+import app.dao.UserEntity;
+import org.hibernate.IdentifierLoadAccess;
+import org.hibernate.Session;
 
-    String instanceName = "WD45-PC";
-    String databaseName = "test";
-    String userName = "WD45-PC\\WD45";
-    String pass = "**********";
-    String connectionUrl = "jdbc:sqlserver://localhost;databaseName=FromJavaDB;integratedSecurity=true";
-    String connectionString = String.format(connectionUrl, instanceName, databaseName, userName, pass);
+public class Main {
 
     public static void main (String[] arg)
     {
-        System.out.print("dsfgsdfg");
+        System.out.println("Hibernate tutorial");
+
+        Session session = HibernateSessionFactory.getSessionFactory().openSession();
+
+        //session.beginTransaction();
+
+        UserEntity userEntity = session.load(UserEntity.class, 1);
+
+        userEntity.getLogin();
+
+        //session.save(userEntity);
+        //session.getTransaction().commit();
+
+        session.close();
+
+        System.out.println(userEntity.getLogin());
     }
 }

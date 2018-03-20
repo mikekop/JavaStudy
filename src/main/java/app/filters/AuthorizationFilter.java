@@ -1,21 +1,26 @@
 package app.filters;
 
+import app.HibernateSessionFactory;
+import app.dao.UserEntity;
+import org.hibernate.Session;
+
 import javax.servlet.*;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-/**
- * Created by WD45 on 18.03.2018.
- */
 public class AuthorizationFilter implements Filter {
     private FilterConfig filterConfig;
 
-    final String login = "admin";
-    final String password = "admin";
+    String login;
+    String password;
 
     public void init(FilterConfig filterConfig) throws ServletException {
+
+//        Session session = HibernateSessionFactory.getSessionFactory().openSession();
+//        UserEntity userEntity = session.load(UserEntity.class, 1);
+//        login = userEntity.getLogin();
+//        password = userEntity.getPassword();
+//        session.close();
         this.filterConfig = filterConfig;
     }
 
