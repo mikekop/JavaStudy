@@ -14,10 +14,6 @@
         <url-pattern>/authorization</url-pattern>
     </servlet-mapping>
 
-    <session-config>
-        <session-timeout>10</session-timeout>
-    </session-config>
-
     <filter>
         <filter-name>authorizationFilter</filter-name>
         <filter-class>app.filters.AuthorizationFilter</filter-class>
@@ -26,8 +22,15 @@
             <param-value>true</param-value>
         </init-param>
     </filter>
+
     <filter-mapping>
         <filter-name>authorizationFilter</filter-name>
         <servlet-name>authorization</servlet-name>
     </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>authorizationFilter</filter-name>
+        <url-pattern>*.html</url-pattern>
+    </filter-mapping>
+
 </web-app>

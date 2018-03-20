@@ -1,8 +1,7 @@
 package app.filters;
 
-import app.HibernateSessionFactory;
-import app.dao.UserEntity;
-import org.hibernate.Session;
+import app.dao.DAOImple;
+import app.model.UserEntity;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletResponse;
@@ -15,20 +14,20 @@ public class AuthorizationFilter implements Filter {
     String password;
 
     public void init(FilterConfig filterConfig) throws ServletException {
-
-//        Session session = HibernateSessionFactory.getSessionFactory().openSession();
-//        UserEntity userEntity = session.load(UserEntity.class, 1);
-//        login = userEntity.getLogin();
-//        password = userEntity.getPassword();
-//        session.close();
         this.filterConfig = filterConfig;
     }
 
     public void doFilter(ServletRequest request, ServletResponse response,
                          FilterChain chain) throws IOException, ServletException {
 
-        String login = request.getParameter("login");
-        String password = request.getParameter("password");
+        String login = request.getParameter("login") == null ? "" : request.getParameter("login");
+        String password = request.getParameter("password")== null ? "" : request.getParameter("password");
+
+        DAOImple daoImple = new DAOImple();
+        UserEntity userEntity = daoImple.getUserById(1);
+
+        this.login = userEntity.getLogin();
+        this.password = userEntity.getPassword();
 
         HttpServletResponse httpResponse = (HttpServletResponse) response;
 
