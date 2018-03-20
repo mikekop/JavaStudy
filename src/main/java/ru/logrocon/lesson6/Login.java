@@ -1,13 +1,16 @@
 package ru.logrocon.lesson6;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.UUID;
+import static ru.logrocon.lesson6.DataBaseWorker.isFindUser;
 
+@WebServlet(name = "login", urlPatterns = {"/login"})
 public class Login extends HttpServlet {
 
     String sql = "select * from users where login='%s' and password='%s'";
@@ -23,22 +26,11 @@ public class Login extends HttpServlet {
         String password = request.getParameter("password");
         HttpSession session = request.getSession();
         if (session != null) {
-            boolean hasUser = false;
-
-            try {
-                Database db = (Database) getServletContext().getAttribute("db");
-                ResultSet result = db.execSql(string.Format(sql, login, password));
-                hasUser = result.next();
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
-            if (userValid) {
+            if (isFindUser(login, password)) {
                 session.setAttribute("token", UUID.randomUUID());
-                response.sendRedirect(request.getContextPath() + "/information");
+                response.sendRedirect(request.getContextPath() + "/information.jsp");
             } else {
-                resp.sendRedirect("./login.jsp");
+                request.getRequestDispatcher("/login.jsp").forward(request, response);
             }
         }
     }

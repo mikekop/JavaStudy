@@ -3,7 +3,6 @@ package ru.logrocon.lesson6;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
-import java.sql.SQLException;
 
 public class LogListener implements ServletContextListener {
 

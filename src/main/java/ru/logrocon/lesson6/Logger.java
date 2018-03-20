@@ -1,10 +1,8 @@
 package ru.logrocon.lesson6;
 
 import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
-import java.nio.charset.StandardCharsets;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class Logger {
