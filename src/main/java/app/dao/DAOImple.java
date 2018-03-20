@@ -12,7 +12,7 @@ public class DAOImple {
         session.beginTransaction();
         UserEntity userEntity = session.load(UserEntity.class, 1);
         session.getTransaction().commit();
-        //session.close();
+        session.close();
         return userEntity;
     }
 }
