@@ -1,0 +1,12 @@
+
+.idea/compiler.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/workspace.xml
+target/classes/ru/logrocon/lesson7/A.class
+target/classes/ru/logrocon/lesson7/B.class
+target/classes/ru/logrocon/lesson7/Locker.class
+target/classes/ru/logrocon/lesson7/Main.class
+target/classes/ru/logrocon/lesson7/ThreadA.class
+target/classes/ru/logrocon/lesson7/ThreadB.class
