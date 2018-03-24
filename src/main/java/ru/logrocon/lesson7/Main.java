@@ -14,8 +14,8 @@ public class Main {
 
         final CountDownLatch latch = new CountDownLatch(2);
 
-        new Locker(a, b, latch).start();
-        new Locker(b, a, latch).start();
+        new Locker(a, b).start();
+
 
 
         ThreadA threadA = new ThreadA();
@@ -75,30 +75,23 @@ class B {
 
 class Locker extends Thread { // горантированный делок
 
-    private final CountDownLatch latch;
     private final Object obj1;
     private final Object obj2;
 
-    Locker(Object obj1, Object obj2, CountDownLatch latch) {
+    Locker(Object obj1, Object obj2) {
         this.obj1 = obj1;
         this.obj2 = obj2;
-        this.latch = latch;
     }
 
     @Override
     public void run() {
         synchronized (obj1) {
-
-            latch.countDown();
-            try {
-                latch.await();
-            } catch (InterruptedException e) {
-                throw new RuntimeException();
-            }
+            obj1.notifyAll(); // возобновляет все потоки
             synchronized (obj2) {
-                System.out.println("Конец");
+                try {
+                    obj2.wait(); // в состояние ожидания
+                }catch (InterruptedException e){}
             }
         }
-
     }
 }
