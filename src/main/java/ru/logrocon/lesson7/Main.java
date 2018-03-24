@@ -86,10 +86,12 @@ class Locker extends Thread { // горантированный делок
     @Override
     public void run() {
         synchronized (obj1) {
-            obj1.notifyAll(); // возобновляет все потоки
+            obj1.notify(); // продолжает работу потока, у которого ранее был вызван метод wait()
             synchronized (obj2) {
                 try {
-                    obj2.wait(); // в состояние ожидания
+//                    переводит вызывающий поток в состояние ожидания до тех пор,
+//                            пока другой поток не вызовет метод notify()
+                    obj2.wait();
                 }catch (InterruptedException e){}
             }
         }

@@ -10,3 +10,7 @@ target/classes/ru/logrocon/lesson7/Locker.class
 target/classes/ru/logrocon/lesson7/Main.class
 target/classes/ru/logrocon/lesson7/ThreadA.class
 target/classes/ru/logrocon/lesson7/ThreadB.class
+target/classes/ru/logrocon/lesson7/RunStreams.class
+target/classes/ru/logrocon/lesson7/RunStreams$Flag.class
+target/classes/ru/logrocon/lesson7/RunStreams$1.class
+.idea/uiDesigner.xml
