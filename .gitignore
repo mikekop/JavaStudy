@@ -30,5 +30,5 @@ gradle-app.setting
 .idea
 target
 
-/receiver/build/
+/*/build/
 /logs/*
