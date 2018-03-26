@@ -12,8 +12,6 @@ public class Main {
         a.b = b;
         b.a = a;
 
-        final CountDownLatch latch = new CountDownLatch(2);
-
         new Locker(a, b).start();
 
 

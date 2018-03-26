@@ -1,5 +1,7 @@
 package ru.logrocon.lesson7;
 
+import java.util.concurrent.CountDownLatch;
+
 public class RunStreams implements Runnable {
     static final int countThreads = 4;
     

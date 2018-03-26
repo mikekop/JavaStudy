@@ -14,3 +14,4 @@ target/classes/ru/logrocon/lesson7/RunStreams.class
 target/classes/ru/logrocon/lesson7/RunStreams$Flag.class
 target/classes/ru/logrocon/lesson7/RunStreams$1.class
 .idea/uiDesigner.xml
+target/classes/ru/logrocon/lesson7/RunStreamCountDownLatch.class
