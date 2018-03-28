@@ -19,6 +19,7 @@ public class Threading implements Runnable {
     @Override
     public void run() {
         try {
+            _start.countDown();
             _start.await();
             long time = Calendar.getInstance().get(Calendar.MILLISECOND);
             System.out.printf("Поток: %s. Запуск: %s\r\n", _num, time);

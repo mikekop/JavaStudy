@@ -9,7 +9,7 @@ public class Deadlock {
     public Deadlock() {
         ClassA a = new ClassA();
         ClassB b = new ClassB();
-        final CountDownLatch start = new CountDownLatch(1);
+        final CountDownLatch start = new CountDownLatch(2);
 
         WorkerA w1 = new WorkerA(a, b, start);
         WorkerB w2 = new WorkerB(a, b, start);
@@ -19,6 +19,5 @@ public class Deadlock {
 
         t1.start();
         t2.start();
-        start.countDown();
     }
 }

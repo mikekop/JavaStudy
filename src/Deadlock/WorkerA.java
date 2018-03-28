@@ -16,6 +16,7 @@ public class WorkerA implements Runnable {
     @Override
     public void run() {
         try {
+            startCountDown.countDown();
             startCountDown.await();
             classA.beginWork(classB);
         } catch (InterruptedException e) {

@@ -5,7 +5,7 @@ import java.util.concurrent.TimeUnit;
 
 public class SimultaneousStart {
 
-    private final CountDownLatch start = new CountDownLatch(1);
+    private final CountDownLatch start = new CountDownLatch(4);
 
     public SimultaneousStart() {
         try {
@@ -18,7 +18,6 @@ public class SimultaneousStart {
                 TimeUnit.SECONDS.sleep(1);
                 t.start();
             }
-            start.countDown();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
