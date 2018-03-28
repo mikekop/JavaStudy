@@ -1,4 +1,4 @@
-package Simultaneous;
+package simultaneous;
 
 import java.util.Calendar;
 import java.util.Date;

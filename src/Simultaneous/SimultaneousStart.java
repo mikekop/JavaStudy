@@ -1,4 +1,4 @@
-package Simultaneous;
+package simultaneous;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;

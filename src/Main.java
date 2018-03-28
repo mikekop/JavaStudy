@@ -1,5 +1,6 @@
-import Deadlock.Deadlock;
-import Simultaneous.SimultaneousStart;
+import deadlock.Deadlock;
+import deadlockWithObj.DeadLockWithObj;
+import simultaneous.SimultaneousStart;
 
 import java.util.Scanner;
 
@@ -11,6 +12,7 @@ public class Main {
             System.out.println("Выберите задание:");
             System.out.println("1 - Одновременный старт");
             System.out.println("2 - Дедлок");
+            System.out.println("3 - Дедлок c объектами");
             System.out.println("0 - Выход");
 
             if (sc.hasNextInt()) {
@@ -22,6 +24,10 @@ public class Main {
                         break;
                     case 2:
                         new Deadlock();
+                        var = -1;
+                        break;
+                    case 3:
+                        new DeadLockWithObj().start();
                         var = -1;
                         break;
                     case 0:

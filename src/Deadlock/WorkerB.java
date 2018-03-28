@@ -1,18 +1,23 @@
-package Deadlock;
+package deadlock;
+
+import java.util.concurrent.CountDownLatch;
 
 public class WorkerB implements Runnable {
-    private ClassA _a;
-    private ClassB _b;
+    private ClassA classA;
+    private ClassB classB;
+    private CountDownLatch startCountDown;
 
-    public WorkerB(ClassA a, ClassB b){
-        _a = a;
-        _b = b;
+    public WorkerB(ClassA a, ClassB b, CountDownLatch start){
+        classA = a;
+        classB = b;
+        startCountDown = start;
     }
 
     @Override
     public void run() {
         try {
-            _b.beginWork(_a);
+            startCountDown.await();
+            classB.beginWork(classA);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
