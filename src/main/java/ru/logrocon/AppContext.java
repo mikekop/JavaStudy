@@ -9,7 +9,7 @@ public class AppContext {
         return new Speaker();
     }
 
-    @Bean
+    @Bean(destroyMethod="stopSpeaking")
     public SpeakRepeater repeater(){
         SpeakRepeater speakRepeater = new SpeakRepeater();
         speakRepeater.setSpeaker(speaker());
