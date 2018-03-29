@@ -6,8 +6,8 @@ public class Main {
     private static CountDownLatch barrier = new CountDownLatch(2);
 
     public static void main(String[] args) {
-//        deadlock();
-        withoutDeadlock();
+        deadlock();
+//        withoutDeadlock();
     }
 
     private static void withoutDeadlock(){
