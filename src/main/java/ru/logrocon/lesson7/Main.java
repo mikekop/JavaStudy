@@ -1,20 +1,25 @@
 package ru.logrocon.lesson7;
 
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * Created by WD45 on 21.03.2018.
  */
 public class Main {
+
     static A a = new A();
     static B b = new B();
+
     public static void main (String[] args){
+
         a.b = b;
         b.a = a;
 
-        new Locker(a, b).start();
+        //new Locker(a, b).start();
 
-
+        ReentrantLock locker = new ReentrantLock();
 
         ThreadA threadA = new ThreadA();
         ThreadB threadB = new ThreadB();
@@ -22,28 +27,52 @@ public class Main {
         threadA.a = a;
         threadB.b = b;
 
+        threadB.locker = locker;
+        threadA.locker = locker;
+
+
+
+
+
         threadA.start();
         threadB.start();
-
 
     }
 }
 
 class ThreadA extends Thread{
     A a;
-
+    ReentrantLock locker;
     @Override
     public void run(){
-        System.out.println(a.getI());
+        locker.lock();
+        try {
+            System.out.println(a.getI());
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        finally {
+            locker.unlock();
+        }
     }
 }
 
 class ThreadB extends Thread{
     B b;
-
+    ReentrantLock locker;
     @Override
     public void run(){
-        System.out.println(b.getI());
+        locker.lock();
+        try {
+            System.out.println(b.getI());
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        finally {
+            locker.unlock();
+        }
     }
 }
 
@@ -83,7 +112,7 @@ class Locker extends Thread { // горантированный делок
 
     @Override
     public void run() {
-        synchronized (obj1) {
+        synchronized  (obj1) {
             obj1.notify(); // продолжает работу потока, у которого ранее был вызван метод wait()
             synchronized (obj2) {
                 try {
