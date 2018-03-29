@@ -18,35 +18,28 @@ class RunStreamCountDownLatch implements Runnable{
     }
 
     public void task() {
-        int temp = 1000/10*58;
+        for (int i=0;i<1000;i++){
+            int temp = 1000/10*58;
+        }
     }
 
     public void run() {
         try {
+            latch.countDown();
+            latch.await();
             final long startExec = System.currentTimeMillis();
             task();
             System.out.println("Поток № " + this.threadNum + " Старт: " + startExec );
-        } catch (Exception e) {
+        } catch (InterruptedException  e) {
             e.printStackTrace();
         }
 
-        latch.countDown();
     }
+
     public static void main(String[] args) {
-
         CountDownLatch latch = new CountDownLatch(countThreads);
-
-        //создаём пул с потоками
-        ExecutorService executor = Executors.newFixedThreadPool(countThreads);
-
         for(int i=0; i < countThreads; i++) {
-            executor.submit(new RunStreamCountDownLatch(latch, i));
-        }
-
-        try {
-            latch.await();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+            new Thread(new RunStreamCountDownLatch(latch, i)).start();
         }
     }
 }

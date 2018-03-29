@@ -15,3 +15,5 @@ target/classes/ru/logrocon/lesson7/RunStreams$Flag.class
 target/classes/ru/logrocon/lesson7/RunStreams$1.class
 .idea/uiDesigner.xml
 target/classes/ru/logrocon/lesson7/RunStreamCountDownLatch.class
+hs_err_pid21188.log
+hs_err_pid11288.log
