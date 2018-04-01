@@ -11,9 +11,6 @@ public class AppContext {
 
     @Bean(destroyMethod="stopSpeaking")
     public SpeakRepeater repeater(){
-        SpeakRepeater speakRepeater = new SpeakRepeater();
-        speakRepeater.setSpeaker(speaker());
-
-        return speakRepeater;
+        return new SpeakRepeater(speaker());
     }
 }

@@ -16,7 +16,7 @@ public class SpeakRepeater {
         }
     };
 
-    public void setSpeaker(Speaker speaker) {
+    public SpeakRepeater(Speaker speaker){
         this.speaker = speaker;
     }
 
