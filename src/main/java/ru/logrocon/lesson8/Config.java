@@ -14,13 +14,13 @@ import java.util.concurrent.Executors;
 public class Config implements SchedulingConfigurer {
 
     @Bean
-    Print printerService() {
+    Print printService() {
         return new PrintImpl();
     }
 
     @Bean
-    Show showerService() {
-        return new ShowImpl(printerService());
+    Show showService() {
+        return new ShowImpl(printService());
     }
 
     @Override
