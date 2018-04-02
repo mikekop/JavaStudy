@@ -4,21 +4,23 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.SchedulingConfigurer;
 import org.springframework.scheduling.config.ScheduledTaskRegistrar;
+import ru.logrocon.lesson8.interfaces.Print;
+import ru.logrocon.lesson8.interfaces.Show;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
 @EnableScheduling
-public class Configuration implements SchedulingConfigurer {
+public class Config implements SchedulingConfigurer {
 
     @Bean
-    Printer printerService() {
-        return new PrinterImpl();
+    Print printerService() {
+        return new PrintImpl();
     }
 
     @Bean
-    Shower showerService() {
-        return new ShowerImpl(printerService());
+    Show showerService() {
+        return new ShowImpl(printerService());
     }
 
     @Override
