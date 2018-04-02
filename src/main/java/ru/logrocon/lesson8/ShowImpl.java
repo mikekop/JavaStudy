@@ -16,6 +16,6 @@ public class ShowImpl implements Show {
     @Scheduled(fixedRate = 10000) // 10 сек
     @Override
     public void show() {
-        printService.print(String.format("Время: %s", new Date()));
+        printService.print();
     }
 }
