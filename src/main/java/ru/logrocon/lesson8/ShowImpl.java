@@ -7,8 +7,8 @@ import ru.logrocon.lesson8.interfaces.Show;
 public class ShowImpl implements Show {
     Echo echoService;
 
-    public ShowImpl(Echo printServiceDI){
-        echoService = printServiceDI;
+    public ShowImpl(Echo echoServiceDI){
+        echoService = echoServiceDI;
     }
 
     @Scheduled(fixedRate = 10000) // 10 сек
