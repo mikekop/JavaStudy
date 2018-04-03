@@ -1,35 +1,27 @@
 package ru.logrocon;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.scheduling.annotation.Scheduled;
 
-import javax.annotation.PreDestroy;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
+import org.springframework.stereotype.Service;
 
 @Service
 public class SpeakRepeater {
     @Autowired
     private Speaker speaker;
     private String messageToRepeat;
-    private ScheduledExecutorService executor =
-            Executors.newSingleThreadScheduledExecutor();
-    private Runnable task = new Runnable(){
-        @Override
-        public void run() {
+    private boolean isRunning = false;
+
+    // Каждые 10 секунд
+    @Scheduled(fixedRate = 10000)
+    private void speak(){
+        if(isRunning){
             speaker.speak(SpeakRepeater.this.messageToRepeat);
         }
-    };
+    }
 
-    public void startSpeaking(String messageToRepeat){
-        this.messageToRepeat = messageToRepeat;
-        executor.scheduleAtFixedRate(task, 0, 10, TimeUnit.SECONDS);
-    }
-    @PreDestroy
-    public void stopSpeaking(){
-        executor.shutdown();
-    }
+    public void startSpeaking(){isRunning = true;}
+    public void stopSpeaking(){isRunning = false;}
 
     public void setMessage(String messageToRepeat) {
         this.messageToRepeat = messageToRepeat;
