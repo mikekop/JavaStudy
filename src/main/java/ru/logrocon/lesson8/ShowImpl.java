@@ -1,21 +1,19 @@
 package ru.logrocon.lesson8;
 
 import org.springframework.scheduling.annotation.Scheduled;
-import ru.logrocon.lesson8.interfaces.Print;
+import ru.logrocon.lesson8.interfaces.Echo;
 import ru.logrocon.lesson8.interfaces.Show;
 
-import java.util.Date;
-
 public class ShowImpl implements Show {
-    Print printService;
+    Echo echoService;
 
-    public ShowImpl(Print printServiceDI){
-        printService = printServiceDI;
+    public ShowImpl(Echo printServiceDI){
+        echoService = printServiceDI;
     }
 
     @Scheduled(fixedRate = 10000) // 10 сек
     @Override
     public void show() {
-        printService.print();
+        echoService.print("Arg");
     }
 }
