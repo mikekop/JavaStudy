@@ -11,6 +11,5 @@
         <mapping class="entity.GoodEntity"/>
         <mapping class="entity.UserEntity"/>
 
-        <!--<mapping class="src.model.UserEntity"/>-->
     </session-factory>
 </hibernate-configuration>
