@@ -75,3 +75,4 @@ lib/spring-websocket-4.3.15.RELEASE.jar
 .idea/libraries/Maven__org_springframework_spring_orm_5_0_2_RELEASE.xml
 .idea/libraries/Maven__org_springframework_spring_aop_5_0_2_RELEASE.xml
 .idea/libraries/Maven__org_springframework_spring_core_5_0_2_RELEASE.xml
+*.xml

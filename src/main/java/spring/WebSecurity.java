@@ -12,9 +12,6 @@ import repository.UserRepository;
 
 public class WebSecurity  extends WebSecurityConfigurerAdapter  {
 
-    @Autowired
-    private UserRepository userRepository;
-
     @Override
     protected void configure(HttpSecurity http) throws Exception{
         http.authorizeRequests()
@@ -36,12 +33,8 @@ public class WebSecurity  extends WebSecurityConfigurerAdapter  {
 
         UserDS userDS = new UserDS();
         auth.userDetailsService((String username)-> {
-            UserEntity user = userRepository.getByLogin(username);
-            if(user == null){
-                return null;
-            }
-            return new UserD(user);
-        }).passwordEncoder(passwordEncoder());
+            return userDS.loadUserByUsername(username);}
+        ).passwordEncoder(passwordEncoder());
     }
 
     @Bean

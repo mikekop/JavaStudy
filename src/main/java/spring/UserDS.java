@@ -5,12 +5,14 @@ import hibernate.HibernateUtil;
 import org.apache.log4j.Logger;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import repository.UserRepository;
 import repository.UserService;
 
 import java.util.HashSet;
@@ -20,6 +22,9 @@ public class UserDS implements UserDetailsService {
     private static final Logger log = Logger
             .getLogger(UserDetailsService.class);
 
+    @Autowired
+    private UserService userService;
+
     public UserDetails loadUserByUsername(String login)
             throws UsernameNotFoundException, DataAccessException {
         Session session = null;
@@ -28,7 +33,7 @@ public class UserDS implements UserDetailsService {
 
             session = HibernateUtil.getSessionFactory().openSession();
 
-            UserEntity userEntity = UserService.getUserByLogin(login);
+            UserEntity userEntity = userService.getByLogin(login);
 
             if (userEntity == null)
                 throw new UsernameNotFoundException("Login " + login
