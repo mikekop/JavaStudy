@@ -78,5 +78,7 @@
     <orderEntry type="library" name="Maven: org.springframework.data:spring-data-commons:2.0.6.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.aspectj:aspectjrt:1.8.12" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.25" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot:1.0.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-autoconfigure:2.0.1.RELEASE" level="project" />
   </component>
 </module>

@@ -5,22 +5,18 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import ru.logrocon.app.security.AuthUser;
 import spring.UserD;
 
 @Controller
 public class MainController {
-    @GetMapping("/")
-    public String home(){return "home";}
-
-    @GetMapping("login")
+    @GetMapping("index")
     public String login(){return "login";}
 
-    @GetMapping("messages")
+    @GetMapping("privatePage")
     public String messages(Model model, Authentication authentication){
 
         UserDetails userDetailsAdapter = (UserD) authentication.getPrincipal();
-        model.addAttribute("messages", userDetailsAdapter.getBaseUser().getMessages());
-        return "messages";
+        model.addAttribute("privatePage", userDetailsAdapter.getUsername());
+        return "privatePage";
     }
 }
