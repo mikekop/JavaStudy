@@ -11,7 +11,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import repository.UserRepository;
+import repository.UserService;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -28,7 +28,7 @@ public class UserDS implements UserDetailsService {
 
             session = HibernateUtil.getSessionFactory().openSession();
 
-            UserEntity userEntity = UserRepository.getUserByLogin(login);
+            UserEntity userEntity = UserService.getUserByLogin(login);
 
             if (userEntity == null)
                 throw new UsernameNotFoundException("Login " + login
