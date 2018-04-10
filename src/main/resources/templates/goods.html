@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>goods</title>
+</head>
+<body>
+<table th:if="${goods.size() > 0}" class="table table-striped">
+    <thead class="thead-dark">
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="good, iter : ${goods}">
+        <td scope="row" th:text="${good.getId()}"></td>
+        <td th:text="${good.getName()}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
