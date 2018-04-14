@@ -10,15 +10,18 @@ import ru.logrocon.app.security.AuthUser;
 public class AppController {
     @GetMapping("/")
     public String home(){return "home";}
-
-    @GetMapping("login")
+    @GetMapping("/login")
     public String login(){return "login";}
-
-    // Защищенная
-    @GetMapping("messages")
+    @GetMapping("/messages")
     public String messages(Model model, Authentication authentication){
         AuthUser userDetailsAdapter = (AuthUser) authentication.getPrincipal();
         model.addAttribute("messages", userDetailsAdapter.getBaseUser().getMessages());
         return "messages";
+    }
+    @GetMapping("/goods")
+    public String goods(Model model, Authentication authentication){
+        AuthUser userDetailsAdapter = (AuthUser) authentication.getPrincipal();
+        model.addAttribute("goods", userDetailsAdapter.getBaseUser().getGoods());
+        return "goods";
     }
 }

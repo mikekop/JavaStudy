@@ -1,0 +1,26 @@
+
+<!doctype html>
+<html lang="ru" layout:decorate="~{layout}">
+<head>
+    <title>Список товаров</title>
+</head>
+<body>
+<h1 layout:fragment="h1"> Список товаров</h1>
+<div layout:fragment="content">
+    <table th:if="${goods.size() > 0}" class="table table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Название</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="good: ${goods}">
+            <td scope="row" th:text="${good.getGoodId()}"></td>
+            <td th:text="${good.getName()}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

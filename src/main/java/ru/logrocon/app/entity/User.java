@@ -25,4 +25,14 @@ public class User implements Serializable{
     private String password;
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private Set<Message> messages;
+    @ManyToMany(mappedBy = "customers")
+    private Set<Good> goods;
+
+    public void addGood(Good good){
+        good.addCustomer(this);
+    }
+
+    public void removeGood(Good good){
+        good.removeCustomer(this);
+    }
 }
