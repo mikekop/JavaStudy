@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Приватная страница</title>
+</head>
+<body>
+    <p>Приватная страница</p>
+    <table th:if="${userIncidents.size() > 0}">
+        <thead>
+            <tr>
+                <th scope="col">Номер</th>
+                <th scope="col">Наименование</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="incident, iter : ${userIncidents}">
+                <td scope="row" th:text="${incident.getNumber()}"></td>
+                <td th:text="${incident.getTitle()}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
