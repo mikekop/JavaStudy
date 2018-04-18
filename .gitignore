@@ -1,7 +1,7 @@
 .gradle
 /build/
 !gradle/wrapper/gradle-wrapper.jar
-
+/out/
 ### STS ###
 .apt_generated
 .classpath
@@ -16,3 +16,5 @@
 *.iws
 *.iml
 *.ipr
+out/production/classes/generated/
+src/test/resources/
