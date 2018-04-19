@@ -33,13 +33,14 @@ public class GoodRepository {
 
         List<GoodEntity> goodEntities = (ArrayList<GoodEntity>)query.list();
 
+        List<Good> goods = new ArrayList<Good>();
         for (GoodEntity good : goodEntities)
         {
-            //TODO
+            goods.add(new Good(good.getName()));
         }
         session.getTransaction().commit();
         session.close();
 
-        return goodEntities;
+        return goods;
     }
 }

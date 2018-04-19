@@ -1,2 +1,5 @@
 
 *.xml
+*.class
+*.class
+target/classes/ru/logrocon/lesson10/model/dto/Good.class
